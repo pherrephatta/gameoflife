@@ -2,8 +2,6 @@
 #include "Cell.h"
 
 #include <algorithm>
-#include <sstream>
-
 
 Space::Space(int lenght, int height)
 	: mSpace(lenght*height), mLenght{ lenght }, mHeight{ height }
