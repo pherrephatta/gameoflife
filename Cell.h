@@ -1,14 +1,18 @@
 #ifndef CELL_H
 #define CELL_H
 
+#include "RandomUtil.h"
+
+enum class State : bool {
+	INACTIVE = 0,					//!< État inactif, mort, noir, 0, ...
+	ACTIVE = 1,						//!< État actif, vivant, blanc, 1, ...
+};
+
+
 class Cell
 {
 public:
 	
-	enum class State : bool {
-		INACTIVE = 0,					//!< État inactif, mort, noir, 0, ...
-		ACTIVE = 1,						//!< État actif, vivant, blanc, 1, ...
-	};
 
     private: 
 
@@ -26,22 +30,17 @@ public:
 	~Cell() = default;
 
 	//////////////////////////////////////////////////////////////////////////
-	//! \brief Accesseur de l'état
+	// Accesseur de l'état
 	//////////////////////////////////////////////////////////////////////////
 	State state() const; //ou pas const?
+
+
     
 	void setState(State state);
 
 	void randomize(double probability = 0.5);
 
     
-	//Necessaire ou non?
-
-    //Effectue la conversion entre un état et un caractère.
-	//char toChar() const;
-
-	//static void setRepresentation(char inactive, char active);
-
 
 };
 
