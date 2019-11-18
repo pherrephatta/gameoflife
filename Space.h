@@ -6,15 +6,12 @@
 
 class Space
 {
-public:
-	
-	
 
     private: 
 
     std::vector<Cell> mSpace;
-    int m_lenght;
-    int m_height;
+    int mLenght;
+    int mHeight;
 
     
     //Color mColor; CLASSE COULEUR A IMPLANTER 
@@ -22,7 +19,7 @@ public:
     public: 
     //Constructeurs
 	Space() = default;
-    Space(std::vector<Cell> v, int lenght, int height);
+    	Space(int lenght, int height);
 
 
     //Destructeurs
