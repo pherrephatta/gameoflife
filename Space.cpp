@@ -33,20 +33,23 @@ void Space::setSpace() {
 
 void Space::setBorders()
 {	
-	if (!mBordersAlive){
-		for (std::vector<Cell>::iterator it =mSpace.begin(); it != mSpace.end(); ++it) {
-			int index = (it- mSpace.begin());
-			std::cout << index << " ";
-			//if (index < mLenght || index % mLenght == 0 || index + 1 % mLenght == 0 || (it - mSpace.begin() < (mLenght - 1))) 
-			if (mSpace.begin() - it < mLenght)				{
-				(*(it)).setState(State::INACTIVE);
-			
+	if (!mBordersAlive) {
+
+		int t{ 0 };
+		for (int i{ 0 }; i < mLenght; ++i)
+		{
+			for (int j{ 0 }; j < mLenght; ++j)
+			{
+				if (t < mLenght || t % mLenght == 0 || (t + 1) % mLenght == 0 || t > mSpace.size() - mLenght)
+					mSpace[t].setState(State::INACTIVE);
+
+				t++;
+
 			}
 		}
+
 	}
-
 }
-
 
 
 
