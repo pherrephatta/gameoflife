@@ -1,6 +1,8 @@
 #include "RLEbuffer.h"
 #include <iostream>
 
+///test
+
 using namespace std;
 
 RLEbuffer::RLEbuffer(string s, size_t maxsize)
@@ -16,7 +18,7 @@ bool RLEbuffer::analyzeDataString() {
 
 		if (c == 'b' || c == 'o') {
 			mBufferSize = (mBufferSize == 0) ? 1 : mBufferSize; // si on a rien dans le buffer size, il est de 1 (avec l'état selon b ou o). pratique pour lire par ex: obo24b24o
-			for (int i{ 0 }; i < mBufferSize; ++i) {
+			for (size_t i{ 0 }; i < mBufferSize; ++i) {
 				mExtractedUniverse.push_back(c == 'o' ? true : false); // b = vivant, 0 = mort
 			}
 			if (!verifyCoherence()) { //si on fail le test d
@@ -47,13 +49,13 @@ bool RLEbuffer::analyzeDataString() {
 	
 	mBufferSize = mMaxSize - mExtractedUniverse.size();
 	if (mBufferSize != 0) { //s'il reste des espaces a remplir, on le remplit de mort
-		for (int i{ 0 }; i < mBufferSize; ++i) {
+		for (size_t i{ 0 }; i < mBufferSize; ++i) {
 			mExtractedUniverse.push_back(false); //
 		}
 	}
 
-	for (int i{ 0 }; i < (valBeforeDollar==0?0:valBeforeDollar-1); ++i) {//1(implicit) newline = 1 empty line,  2 retour de ligne = 1 ligne vide, 3 = 2 lignes vides
-		for (int j{ 0 }; j < mMaxSize; ++j) {
+	for (size_t i{ 0 }; i < (valBeforeDollar==0?0:valBeforeDollar-1); ++i) {//1(implicit) newline = 1 empty line,  2 retour de ligne = 1 ligne vide, 3 = 2 lignes vides
+		for (size_t j{ 0 }; j < mMaxSize; ++j) {
 			mExtractedUniverse.push_back(false); //pour chaque signe de piasse, on push back une ligne de x-longueur de morts
 		}
 	}

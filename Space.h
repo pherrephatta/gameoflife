@@ -6,10 +6,6 @@
 
 class Space
 {
-public:
-	
-	
-
     private: 
 
     std::vector<Cell> mSpace;
@@ -20,7 +16,7 @@ public:
     
     //Color mColor; CLASSE COULEUR A IMPLANTER 
 
-    public: 
+   public: 
     //Constructeurs
 	Space() = default;
     Space(int lenght, int height);

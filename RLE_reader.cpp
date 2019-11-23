@@ -2,8 +2,6 @@
 #include <iostream>
 #include <filesystem>
 
-
-
 RLE_reader::RLE_reader(string s) 
 	:mRLEfile{s}{
 	
@@ -78,17 +76,14 @@ bool RLE_reader::analyzeFile() {
 		mRLEfile.close();
 	}
 
-	
-		for (int i{ 0 }; i < mXWidth*mYHeight; ++i) {
-			if (i%mXWidth == 0 && i>2) {
-				cout << '|'<<endl;
-			}
-			cout << (mExportUniverse.at(i)? '*' : ' ');
+	for (size_t i{ 0 }; i < mXWidth*mYHeight; ++i) {
+		if (i%mXWidth == 0 && i>2) {
+			cout << '|'<<endl;
 		}
-		return true;
+		cout << (mExportUniverse.at(i)? '*' : ' ');
+	}
+	return true;
 }
-
-
 
 //C++ 17 NECESSARY
 std::vector<std::string> filesInPath(std::string folder) {
@@ -103,19 +98,18 @@ std::vector<std::string> filesInPath(std::string folder) {
     return files;
 }
 
-
-
 void test(string s) {
 	RLE_reader t(s);
 	bool b = t.analyzeFile();
 	cout << "test : " << s << " result:  " << boolalpha << b << endl << endl;
 }
 
+/*
 int main() {
-
-	vector<string> testFiles = filesInPath("Y:\\C++ J_C\\en classe\\ECA_v4\\ex1v2\\ex1v2\\rle\\");
+	vector<string> testFiles = filesInPath(".\\rle\\");
 	for_each(testFiles.begin(), testFiles.end(), [](string s)->void {cout << s << endl; });
 
 	for (string s : testFiles) 
 		test(s);
-	}
+}
+*/

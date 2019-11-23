@@ -10,12 +10,12 @@ SpaceSample::SpaceSample(std::vector <Cell> const & space, std::vector<Cell>::co
 	
 }
 
-std::vector<State> SpaceSample::Neighborhood()
+/*std::vector<State> SpaceSample::Neighborhood()
 {
 	return std::vector<State>();
-}
+}*/
 
-int SpaceSample::calculateNeighborhood()
+/*int SpaceSample::calculateNeighborhood()
 {
 	//TODO: Clear Vecteur ou Effacer ceux qu'on a plus besoin 
 	int nb_of_neighbors{};
@@ -24,17 +24,16 @@ int SpaceSample::calculateNeighborhood()
 		nb_of_neighbors += (int)mNeighborhood[i].state();
 	}
 	return nb_of_neighbors;
-}
+}*/
 
 void SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it)
-{
-	
+{	
 	setIterateurs(it);
 	up();
 	middle(); 
 	down(); 
-	std::cout << "nb de voisins : " << calculateNeighborhood() << std::endl;
-	mNeighborhood.clear();
+	//std::cout << "nb de voisins : " << calculateNeighborhood() << std::endl;
+	nbNeighbors = 0;
 }
 
 Cell const & SpaceSample::center(std::vector<Cell>::const_iterator it) const
@@ -51,27 +50,35 @@ void SpaceSample::up()
 	}
 	else mStateIt_haut =(mStateIt - mLargeur);
 	
-	mNeighborhood.push_back(left(mStateIt_haut));
-	mNeighborhood.push_back(center(mStateIt_haut));
-	mNeighborhood.push_back(right(mStateIt_haut));
+	
+
+
+	nbNeighbors += (int)(left(mStateIt_haut)).state();
+	nbNeighbors += (int)(right(mStateIt_haut)).state();
+	nbNeighbors += (int)(center(mStateIt_haut)).state();
+	std::cout << nbNeighbors; 
 }
 
 void SpaceSample::middle()
 {
 
-	mNeighborhood.push_back(left(mStateIt));
-	mNeighborhood.push_back(right(mStateIt));
+
+	nbNeighbors += (int)(left(mStateIt)).state();
+	nbNeighbors += (int)(right(mStateIt)).state();
+	
 }
 
 void SpaceSample::down() 
 {
-	if ((int)(mStateIt - mSpace.begin()) >= (mSpace.size()-mLargeur))
+	if (int(mStateIt - mSpace.begin()) >= int(mSpace.size()-mLargeur))
 		mStateIt_bas=(mSpace.begin() + ((mStateIt - mSpace.begin())% mLargeur));
 	else mStateIt_bas=(mStateIt + mLargeur);	
 
-	mNeighborhood.push_back(left(mStateIt_bas));
-	mNeighborhood.push_back(center(mStateIt_bas));
-	mNeighborhood.push_back(right(mStateIt_bas));
+	
+
+	nbNeighbors += (int)(left(mStateIt_bas)).state();
+	nbNeighbors += (int)(right(mStateIt_bas)).state();
+	nbNeighbors += (int)(center(mStateIt_bas)).state();
 }
 
 void SpaceSample::setIterateurs(std::vector<Cell>::const_iterator it)

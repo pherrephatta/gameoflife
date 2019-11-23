@@ -7,22 +7,16 @@
 class Model {
 
 public:
-	Model()		= default;
-	~Model()	= default;
+	Model(int width, int height);
+	~Model() = default;
 
 	//mettre a jour l'espace 
 	void updateSpace();
-
-	//initialiser l'espace
-	void initSpace();
 	   	  
 private:
-
-	vector<Rule> mRule;
-	Space* mSpace1;
-	Space* mspace2;
-
-
+	//vector<Rule> mRule;
+	Space* mSpace1 = nullptr;
+	Space* mSpace2 = nullptr;
 };
 
 #endif	//MODEL_H

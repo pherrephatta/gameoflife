@@ -18,7 +18,7 @@ public:
 
 
 
-	//void setStateIt(std::vector<Cell>::const_iterator stateIt);
+
 
 
     //Destructeurs
@@ -29,11 +29,7 @@ public:
 	//////////////////////////////////////////////////////////////////////////
 
     
-	std::vector<State> Neighborhood();
-
 	
-
-	int calculateNeighborhood();
 
 	void GetNeighbors(std::vector<Cell>::const_iterator it);
 
@@ -50,12 +46,13 @@ public:
 private:
 
 
-	std::vector<Cell> mNeighborhood;
+
 	std::vector<Cell> const & mSpace;
 	std::vector<Cell>::const_iterator mStateIt;
 	std::vector<Cell>::const_iterator mStateIt_haut;
 	std::vector<Cell>::const_iterator mStateIt_bas;
 	int mLargeur;
+	int nbNeighbors = 0;
 	
 };
 

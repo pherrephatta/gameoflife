@@ -10,10 +10,6 @@ using namespace std;
 class Rule {
 
 public:
-
-	//fonction pour instancier le singleton
-	static Rule* getInstance();
-
 	//naviguer de regle en regle
 	void nextRule();
 	void prevRule();
@@ -29,9 +25,6 @@ private:
 	//constructeur et destructeur
 	Rule() = default;
 	~Rule() = default;
-
-	//variable permettant l'instanciation
-	static Rule* mInstance;
 
 	//permet de naviguer entre les regles
 	vector<string>::iterator mIt = mRules.begin();
