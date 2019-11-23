@@ -11,14 +11,14 @@ public:
 
     //Constructeurs
 	SpaceSample() = default;
-	SpaceSample(std::vector<Cell> const & space, std::vector<Cell>::const_iterator stateIt);
+	SpaceSample(std::vector<Cell> const & space, std::vector<Cell>::const_iterator stateIt, int largeur);
 	
 
 
 
 
 
-	void setStateIt(std::vector<Cell>::const_iterator stateIt);
+	//void setStateIt(std::vector<Cell>::const_iterator stateIt);
 
 
     //Destructeurs
@@ -31,26 +31,32 @@ public:
     
 	std::vector<State> Neighborhood();
 
-
+	
 
 	int calculateNeighborhood();
 
-	void GetNeighbors(std::vector<Cell>::const_iterator it_qui_bouge,  int largeur);
+	void GetNeighbors(std::vector<Cell>::const_iterator it);
 
-	Cell const & left() const;
-	Cell const & right() const;
-	Cell const & center() const;
-	Cell const & up(int largeur);
-	Cell const & down(int largeur) ;
+	Cell const & left(std::vector<Cell>::const_iterator it) const;
+	Cell const & right(std::vector<Cell>::const_iterator it) const;
+	Cell const & center(std::vector<Cell>::const_iterator it) const;
+	void up();
+	void middle();
+	void down() ;
+	void setIterateurs(std::vector<Cell>::const_iterator it);
+	
 
 	
 private:
 
 
 	std::vector<Cell> mNeighborhood;
-	bool mBorderMngnt;
 	std::vector<Cell> const & mSpace;
 	std::vector<Cell>::const_iterator mStateIt;
+	std::vector<Cell>::const_iterator mStateIt_haut;
+	std::vector<Cell>::const_iterator mStateIt_bas;
+	int mLargeur;
+	
 };
 
 
