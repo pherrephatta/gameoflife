@@ -9,6 +9,24 @@ RLE_reader::RLE_reader(string s)
 
 }
 
+unsigned char RLE_reader::ruleB() {
+	unsigned char ruleB(NULL);
+	for (char c : mRuleB) {
+		size_t bitToSet = c-'0';
+		ruleB ^= (1 << (bitToSet - 1));
+	}
+	return ruleB;
+}
+
+unsigned char RLE_reader::ruleS() {
+	unsigned char ruleS(NULL);
+	for (char c : mRuleS) {
+		size_t bitToSet = c - '0';
+		ruleS ^= (1<<(bitToSet-1));
+	}
+	return ruleS;
+}
+
 bool RLE_reader::analyzeFile() {
 	smatch s;
 	string line;
@@ -76,13 +94,14 @@ bool RLE_reader::analyzeFile() {
 		mRLEfile.close();
 	}
 
-	for (size_t i{ 0 }; i < mXWidth*mYHeight; ++i) {
-		if (i%mXWidth == 0 && i>2) {
-			cout << '|'<<endl;
+	
+		for (size_t i{ 0 }; i < mXWidth*mYHeight; ++i) {
+			if (i%mXWidth == 0 && i>2) {
+				cout << '|'<<endl;
+			}
+			cout << (mExportUniverse.at(i)? '*' : ' ');
 		}
-		cout << (mExportUniverse.at(i)? '*' : ' ');
-	}
-	return true;
+		return true;
 }
 
 //C++ 17 NECESSARY
@@ -101,13 +120,17 @@ std::vector<std::string> filesInPath(std::string folder) {
 void test(string s) {
 	RLE_reader t(s);
 	bool b = t.analyzeFile();
-	cout << "test : " << s << " result:  " << boolalpha << b << endl << endl;
+	unsigned char testB = t.ruleB();
+	unsigned char testS = t.ruleS();
+	//cout << "test : " << s << " result:  " << boolalpha << b << endl << endl;
 }
 
+/*
 int main() {
-	vector<string> testFiles = filesInPath("../rle/");
+
+	vector<string> testFiles = filesInPath(".\\rle");
 	for_each(testFiles.begin(), testFiles.end(), [](string s)->void {cout << s << endl; });
 
 	for (string s : testFiles) 
 		test(s);
-}
+}*/

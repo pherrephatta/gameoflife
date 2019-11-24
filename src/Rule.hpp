@@ -3,39 +3,23 @@
 
 #include <string>
 #include <vector>
+#include <cassert>
 #include "Cell.hpp"
 
 using namespace std;
 
 class Rule {
+	unsigned char mRuleB; //rules are expressed as 8 bits values. ex: if for birth 2 or 4 alive neighbours are necessary. the UC representing such rule is 0000 1010.
+	unsigned char mRuleS; //
 
 public:
-	//naviguer de regle en regle
-	void nextRule();
-	void prevRule();
-
-	string getRule();
-
-	//regles (temporaire)
-	vector<string> mRules{ "B3/S23", "B36/S23", "B3678/S34678"};
-
-
-private:
-
 	//constructeur et destructeur
-	Rule() = default;
+	Rule(unsigned char rB, unsigned char rS); //ctor used when reading from RLE file
+	Rule(string rB, string rS);
 	~Rule() = default;
-
-	//permet de naviguer entre les regles
-	vector<string>::iterator mIt = mRules.begin();
-
-	//Separer les vivants des morts a partir des regles
-	vector<int> mRuleAlive;
-	vector<int> mRuleDead;
-
-	//permet de vérifier le prochain etat de la cellule selon son voisinage
-	bool stateOutcome(int nbAlive, Cell state);
-
+	unsigned char ruleB() { return mRuleB; }
+	unsigned char ruleS() { return mRuleS; }
+	bool outcome(bool state, int NbOfNeighbours);
 };
 
 #endif //RULE_H

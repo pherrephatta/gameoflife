@@ -29,6 +29,8 @@ public:
 	RLE_reader(string s);
 	~RLE_reader () = default;
 
+	unsigned char ruleB();
+	unsigned char ruleS();
 	bool analyzeFile();
 };
 
