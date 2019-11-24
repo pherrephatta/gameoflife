@@ -42,6 +42,10 @@ class Space
 		return mLenght;
 	};
 
+	int Height() {
+		return mHeight;
+	}
+
 
     
 	//Necessaire ou non?

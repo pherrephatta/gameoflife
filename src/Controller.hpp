@@ -84,6 +84,9 @@ private:
 	int mIndexFile{};
 	int mIndexSpeed{};
 	*/
+
+	//TODO temporary event handler
+	void handleEvents(View& window);
 };
 
 #endif //CONTROLER_H

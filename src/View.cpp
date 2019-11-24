@@ -1,25 +1,43 @@
+#include <cassert>
 #include "View.hpp"
 
 View::View(uint16_t width, uint16_t height) 
-	: window(width, height) 
+	: mWindow(width, height) 
 {
-	printf("%d, %d\n", window.logWidth(), window.logHeight());
+	printf("%d, %d\n", mWindow.logWidth(), mWindow.logHeight());
 }
 
-// Clears the window's content and sets to black
+Window& View::window() {return mWindow;}
+
+// Clears the mWindow's content and sets to black
 void View::mClear() {
-	SDL_SetRenderDrawColor(window.wdRenderer(), 0, 0, 0, SDL_ALPHA_OPAQUE);
-	SDL_RenderClear(window.wdRenderer());
+	SDL_SetRenderDrawColor(mWindow.wdRenderer(), 0, 0, 0, SDL_ALPHA_OPAQUE);
+	SDL_RenderClear(mWindow.wdRenderer());
 }
 
 void View::mRenderChecker() {
 	mClear();
-	for (int y{0}; y < window.logHeight(); y++) {
-		for (int x{0}; x < window.logWidth(); x++) {
+	for (int y{0}; y < mWindow.logHeight(); y++) {
+		for (int x{0}; x < mWindow.logWidth(); x++) {
 			int color = (x + y) % 2 == 0 ? 255 : 0;
-			SDL_SetRenderDrawColor(window.wdRenderer(), color, color, color, SDL_ALPHA_OPAQUE);
-			SDL_RenderDrawPoint(window.wdRenderer(), x, y);
+			SDL_SetRenderDrawColor(mWindow.wdRenderer(), color, color, color, SDL_ALPHA_OPAQUE);
+			SDL_RenderDrawPoint(mWindow.wdRenderer(), x, y);
 		}
 	}
-	SDL_RenderPresent(window.wdRenderer());
+	SDL_RenderPresent(mWindow.wdRenderer());
+}
+
+void View::mRenderModel(Model& model) { 
+	assert(model.space1().Lenght() * model.space1().Height() == mWindow.logWidth() * mWindow.logHeight());
+	int pos{}, color{};
+	mClear();
+	for (int y{0}; y < mWindow.logHeight(); y++) {
+		for (int x{0}; x < mWindow.logWidth(); x++) {
+			pos = (y * model.space1().Lenght()) + x;
+			color = model.space1().getSpace()[pos].state() == State::ACTIVE ? 255 : 0;
+			SDL_SetRenderDrawColor(mWindow.wdRenderer(), color, color, color, SDL_ALPHA_OPAQUE);
+			SDL_RenderDrawPoint(mWindow.wdRenderer(), x, y);
+		}
+	}
+	SDL_RenderPresent(mWindow.wdRenderer());
 }

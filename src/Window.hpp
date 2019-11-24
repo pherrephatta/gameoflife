@@ -11,8 +11,9 @@ public:
 	Window() = delete;
 	~Window();
 
-	SDL_Window* wdHandle(); 
-	SDL_Renderer* wdRenderer();
+	SDL_Window*& wdHandle(); 
+	SDL_Renderer*& wdRenderer();
+	SDL_Event& event(); 
 	uint16_t logWidth();
 	uint16_t logHeight();
 
@@ -26,6 +27,7 @@ private:
 
 	SDL_Window *mWdHandle = nullptr;
 	SDL_Renderer *mWdRenderer = nullptr;
+	SDL_Event mEvent;
 };
 
 #endif // WINDOW_H

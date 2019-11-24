@@ -13,6 +13,8 @@ public:
 
 	//mettre a jour l'espace 
 	void updateSpace();
+	Space& space1();
+	Space& space2();
 	   	  
 private:
 	//vector<Rule> mRule;

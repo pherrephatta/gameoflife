@@ -33,6 +33,7 @@ GenMode_Random5	src/Controller.hpp	/^		GenMode_Random5 			= 'S',$/;"	e	enum:Cont
 GenMode_Random50	src/Controller.hpp	/^		GenMode_Random50 			= 'H',$/;"	e	enum:Controller::KeyBinding
 GenerationMode	src/Controller.hpp	/^	enum class GenerationMode {$/;"	g	class:Controller
 GetNeighbors	src/SpaceSample.cpp	/^void SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it)$/;"	f	class:SpaceSample	typeref:typename:void
+Height	src/Space.hpp	/^	int Height() {$/;"	f	class:Space	typeref:typename:int
 INACTIVE	src/Cell.hpp	/^	INACTIVE = 0,					\/\/!< État inactif, mort, noir, 0, ...$/;"	e	enum:State
 INCLUDE	makefile	/^INCLUDE = -lSDL2$/;"	m
 KEYBINDING_H	src/KeyBinding.hpp	/^#define KEYBINDING_H$/;"	d
@@ -105,9 +106,11 @@ center	src/SpaceSample.cpp	/^Cell const & SpaceSample::center(std::vector<Cell>:
 clean	makefile	/^clean :$/;"	t
 done	src/RLEbuffer.hpp	/^	bool done(){ return (verifyCoherence() && mDone); }$/;"	f	class:RLEbuffer	typeref:typename:bool
 down	src/SpaceSample.cpp	/^void SpaceSample::down() $/;"	f	class:SpaceSample	typeref:typename:void
+event	src/Window.cpp	/^SDL_Event& Window::event() {return mEvent;}$/;"	f	class:Window	typeref:typename:SDL_Event &
 filesInPath	src/RLE_reader.cpp	/^std::vector<std::string> filesInPath(std::string folder) {$/;"	f	typeref:typename:std::vector<std::string>
 generateEvent	src/RandomUtil.cpp	/^bool RandomUtil::generateEvent(double probability)$/;"	f	class:RandomUtil	typeref:typename:bool
 getSpace	src/Space.cpp	/^std::vector<Cell> const & Space::getSpace() const$/;"	f	class:Space	typeref:typename:std::vector<Cell> const &
+handleEvents	src/Controller.cpp	/^void Controller::handleEvents(View& view) {$/;"	f	class:Controller	typeref:typename:void
 left	src/SpaceSample.cpp	/^Cell const & SpaceSample::left(std::vector<Cell>::const_iterator it) const $/;"	f	class:SpaceSample	typeref:typename:Cell const &
 logHeight	src/Window.cpp	/^uint16_t Window::logHeight() {return mLogHeight;}$/;"	f	class:Window	typeref:typename:uint16_t
 logWidth	src/Window.cpp	/^uint16_t Window::logWidth() {return mLogWidth;}$/;"	f	class:Window	typeref:typename:uint16_t
@@ -116,6 +119,7 @@ mBufferSize	src/RLEbuffer.hpp	/^	size_t mBufferSize;$/;"	m	class:RLEbuffer	typer
 mClear	src/View.cpp	/^void View::mClear() {$/;"	f	class:View	typeref:typename:void
 mCurrLine	src/RLEbuffer.hpp	/^	const string mCurrLine;$/;"	m	class:RLEbuffer	typeref:typename:const string
 mDone	src/RLEbuffer.hpp	/^	bool mDone{ false }; \/\/ '!' char encountered$/;"	m	class:RLEbuffer	typeref:typename:bool
+mEvent	src/Window.hpp	/^	SDL_Event mEvent;$/;"	m	class:Window	typeref:typename:SDL_Event
 mExportUniverse	src/RLE_reader.hpp	/^	vector<bool> mExportUniverse{};\/\/contiguous universe to be eventually exported, if valid$/;"	m	class:RLE_reader	typeref:typename:vector<bool>
 mExtractedUniverse	src/RLEbuffer.hpp	/^	vector<bool> mExtractedUniverse;\/\/to be sent to RLE reader if valid$/;"	m	class:RLEbuffer	typeref:typename:vector<bool>
 mHeight	src/Space.hpp	/^    int mHeight;$/;"	m	class:Space	typeref:typename:int
@@ -130,6 +134,7 @@ mPxWidth	src/Window.hpp	/^	uint16_t mPxWidth = 5;								\/\/ Pixel logical widt
 mQuit	src/Controller.hpp	/^	bool mQuit = false;$/;"	m	class:Controller	typeref:typename:bool
 mRLEfile	src/RLE_reader.hpp	/^	ifstream mRLEfile{};$/;"	m	class:RLE_reader	typeref:typename:ifstream
 mRenderChecker	src/View.cpp	/^void View::mRenderChecker() {$/;"	f	class:View	typeref:typename:void
+mRenderModel	src/View.cpp	/^void View::mRenderModel(Model& model) { $/;"	f	class:View	typeref:typename:void
 mRgxComments	src/RLE_reader.hpp	/^	regex mRgxComments{ "(#)([CcNORr].*)" };$/;"	m	class:RLE_reader	typeref:typename:regex
 mRgxInitLine	src/RLE_reader.hpp	/^	regex mRgxInitLine{ "x = ([0-9]+), y = ([0-9]+).*" }; \/\/teste la regle pour sa syntaxe (synta/;"	m	class:RLE_reader	typeref:typename:regex
 mRgxLineFormat	src/RLE_reader.hpp	/^	regex mRgxLineFormat{ "^.*([bo\\\\d\\\\s$!]?)*$" }; \/\/data line format$/;"	m	class:RLE_reader	typeref:typename:regex
@@ -151,6 +156,7 @@ mWdHandle	src/Window.hpp	/^	SDL_Window *mWdHandle = nullptr;$/;"	m	class:Window	
 mWdHeight	src/Window.hpp	/^	uint16_t mWdHeight;									\/\/ Window height (pixels$/;"	m	class:Window	typeref:typename:uint16_t
 mWdRenderer	src/Window.hpp	/^	SDL_Renderer *mWdRenderer = nullptr;$/;"	m	class:Window	typeref:typename:SDL_Renderer *
 mWdWidth	src/Window.hpp	/^	uint16_t mWdWidth;									\/\/ Window width (pixels)$/;"	m	class:Window	typeref:typename:uint16_t
+mWindow	src/View.hpp	/^	Window mWindow;$/;"	m	class:View	typeref:typename:Window
 mXWidth	src/RLE_reader.hpp	/^	size_t mXWidth{};$/;"	m	class:RLE_reader	typeref:typename:size_t
 mYHeight	src/RLE_reader.hpp	/^	size_t mYHeight{};$/;"	m	class:RLE_reader	typeref:typename:size_t
 main	src/GameOfLife.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int
@@ -172,13 +178,15 @@ setBorders	src/Space.cpp	/^void Space::setBorders()$/;"	f	class:Space	typeref:ty
 setIterateurs	src/SpaceSample.cpp	/^void SpaceSample::setIterateurs(std::vector<Cell>::const_iterator it)$/;"	f	class:SpaceSample	typeref:typename:void
 setSpace	src/Space.cpp	/^void Space::setSpace() {$/;"	f	class:Space	typeref:typename:void
 setState	src/Cell.cpp	/^void Cell::setState(State state)$/;"	f	class:Cell	typeref:typename:void
+space1	src/Model.cpp	/^	Space& Model::space1(){return *mSpace1;}$/;"	f	class:Model	typeref:typename:Space &
+space2	src/Model.cpp	/^	Space& Model::space2(){return *mSpace2;}$/;"	f	class:Model	typeref:typename:Space &
 start	src/Controller.cpp	/^void Controller::start() {$/;"	f	class:Controller	typeref:typename:void
 state	src/Cell.cpp	/^State Cell::state() const$/;"	f	class:Cell	typeref:typename:State
 test	src/RLE_reader.cpp	/^void test(string s) {$/;"	f	typeref:typename:void
 up	src/SpaceSample.cpp	/^void SpaceSample::up()$/;"	f	class:SpaceSample	typeref:typename:void
 updateSpace	src/Model.cpp	/^	void Model::updateSpace() {$/;"	f	class:Model	typeref:typename:void
 verifyCoherence	src/RLEbuffer.cpp	/^bool RLEbuffer::verifyCoherence() {$/;"	f	class:RLEbuffer	typeref:typename:bool
-wdHandle	src/Window.cpp	/^SDL_Window* Window::wdHandle() {return mWdHandle;} $/;"	f	class:Window	typeref:typename:SDL_Window *
-wdRenderer	src/Window.cpp	/^SDL_Renderer* Window::wdRenderer() {return mWdRenderer;}$/;"	f	class:Window	typeref:typename:SDL_Renderer *
-window	src/View.hpp	/^	Window window;$/;"	m	class:View	typeref:typename:Window
+wdHandle	src/Window.cpp	/^SDL_Window*& Window::wdHandle() {return mWdHandle;} $/;"	f	class:Window	typeref:typename:SDL_Window * &
+wdRenderer	src/Window.cpp	/^SDL_Renderer*& Window::wdRenderer() {return mWdRenderer;}$/;"	f	class:Window	typeref:typename:SDL_Renderer * &
+window	src/View.cpp	/^Window& View::window() {return mWindow;}$/;"	f	class:View	typeref:typename:Window &
 ~Window	src/Window.cpp	/^Window::~Window() {$/;"	f	class:Window

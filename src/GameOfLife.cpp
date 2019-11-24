@@ -4,8 +4,8 @@
 
 int main(int argc, char *argv[]) {
 
-	uint16_t wdWidth = 1024;
-	uint16_t wdHeight = 768;
+	uint16_t wdWidth = 1280;
+	uint16_t wdHeight = 960;
 
 	// Changing window size at execution
 	switch(argc) {
@@ -29,8 +29,8 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
-	Model model(wdWidth, wdHeight);
 	View view(wdWidth, wdHeight);
+	Model model(view.window().logWidth(), view.window().logHeight());
 	Controller controller(model, view);
 	controller.start();
 

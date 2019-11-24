@@ -6,8 +6,37 @@ Controller::Controller(Model &model, View &view)
 {
 }
 
+void Controller::handleEvents(View& view) {
+
+	switch (view.window().event().type) {
+		case SDL_WINDOWEVENT: {
+			break;
+		}
+
+		case SDL_QUIT: {
+			mQuit = true;
+			break;
+		}
+
+		case SDL_KEYDOWN: {
+			switch(view.window().event().key.keysym.sym) {
+				case SDLK_ESCAPE:
+					mQuit = true;
+					break;
+
+				default: break;
+			}
+			break;
+		}
+
+		default: break;
+	}
+}
+
 void Controller::start() {
 	do {
-		mView.mRenderChecker();
+		while (SDL_PollEvent(&mView.window().event()))
+			handleEvents(mView);
+		mView.mRenderModel(mModel);
 	} while (!mQuit);
 }
