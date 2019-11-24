@@ -14,6 +14,7 @@ CONTROLER_H	src/Controler.hpp	/^#define	CONTROLER_H$/;"	d
 Cell	src/Cell.hpp	/^class Cell$/;"	c
 Controller	src/Controler.hpp	/^class Controller {$/;"	c
 ExtractedUniverse	src/RLEbuffer.hpp	/^	vector<bool> ExtractedUniverse() { return mExtractedUniverse; } \/\/get universe extracted from/;"	f	class:RLEbuffer	typeref:typename:vector<bool>
+Game Of Life	README.md	/^# Game Of Life$/;"	c
 GetNeighbors	src/SpaceSample.cpp	/^void SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it)$/;"	f	class:SpaceSample	typeref:typename:void
 INACTIVE	src/Cell.hpp	/^	INACTIVE = 0,					\/\/!< État inactif, mort, noir, 0, ...$/;"	e	enum:State
 INCLUDE	makefile	/^INCLUDE = -lSDL2$/;"	m
