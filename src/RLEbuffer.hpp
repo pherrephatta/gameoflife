@@ -1,5 +1,8 @@
-#pragma once
+#ifndef RLEBUFFER_H
+#define RLEBUFFER_H
+
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -19,3 +22,5 @@ public:
 	bool done(){ return (verifyCoherence() && mDone); }
 	bool analyzeDataString();
 };
+
+#endif // RLEBUFFER_H

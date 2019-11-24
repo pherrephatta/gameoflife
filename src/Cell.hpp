@@ -1,7 +1,7 @@
 #ifndef CELL_H
 #define CELL_H
 
-#include "RandomUtil.h"
+#include "RandomUtil.hpp"
 
 enum class State : bool {
 	INACTIVE = 0,					//!< État inactif, mort, noir, 0, ...

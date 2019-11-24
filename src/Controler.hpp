@@ -1,7 +1,8 @@
 #ifndef CONTROLER_H
 #define	CONTROLER_H
 
-#include "Model.h"
+#include <array>
+#include "Model.hpp"
 //#include "View.h"
 
 class Controller {
@@ -24,7 +25,7 @@ public:
 private:
 
 	vector<string> mFile;
-	array<int> mSpeed{};
+	std::array<int, 5> mSpeed{};
 	string mPath;
 	int mIndexFile{};
 	int mIndexSpeed{};

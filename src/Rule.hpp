@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "Cell.h"
+#include "Cell.hpp"
 
 using namespace std;
 

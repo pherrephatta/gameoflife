@@ -1,8 +1,8 @@
 #ifndef MODEL_H 
 #define	MODEL_H
 
-#include "Space.h"
-#include "Rule.h"
+#include "Space.hpp"
+#include "Rule.hpp"
 
 class Model {
 

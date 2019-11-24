@@ -1,4 +1,4 @@
-#include "RLE_reader.h"
+#include "RLE_reader.hpp"
 #include <iostream>
 #include <filesystem>
 
@@ -104,12 +104,10 @@ void test(string s) {
 	cout << "test : " << s << " result:  " << boolalpha << b << endl << endl;
 }
 
-/*
 int main() {
-	vector<string> testFiles = filesInPath(".\\rle\\");
+	vector<string> testFiles = filesInPath("../rle/");
 	for_each(testFiles.begin(), testFiles.end(), [](string s)->void {cout << s << endl; });
 
 	for (string s : testFiles) 
 		test(s);
 }
-*/

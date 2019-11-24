@@ -1,0 +1,115 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/54afb0f9/
+ACTIVE	src/Cell.hpp	/^	ACTIVE = 1,						\/\/!< État actif, vivant, blanc, 1, ...$/;"	e	enum:State
+BIN_PATH	makefile	/^BIN_PATH ?= .\/bin\/$/;"	m
+BordersAlive	src/Space.cpp	/^void Space::BordersAlive(bool b)$/;"	f	class:Space	typeref:typename:void
+CC	makefile	/^CC = g++$/;"	m
+CELL_H	src/Cell.hpp	/^#define CELL_H$/;"	d
+CONTROLER_H	src/Controler.hpp	/^#define	CONTROLER_H$/;"	d
+Cell	src/Cell.hpp	/^class Cell$/;"	c
+Controller	src/Controler.hpp	/^class Controller {$/;"	c
+ExtractedUniverse	src/RLEbuffer.hpp	/^	vector<bool> ExtractedUniverse() { return mExtractedUniverse; } \/\/get universe extracted from/;"	f	class:RLEbuffer	typeref:typename:vector<bool>
+GetNeighbors	src/SpaceSample.cpp	/^void SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it)$/;"	f	class:SpaceSample	typeref:typename:void
+INACTIVE	src/Cell.hpp	/^	INACTIVE = 0,					\/\/!< État inactif, mort, noir, 0, ...$/;"	e	enum:State
+INCLUDE	makefile	/^INCLUDE = -lSDL2$/;"	m
+Lenght	src/Space.hpp	/^	int Lenght() {$/;"	f	class:Space	typeref:typename:int
+MODEL_H	src/Model.hpp	/^#define	MODEL_H$/;"	d
+Model	src/Model.cpp	/^	Model::Model(int width, int height) {$/;"	f	class:Model
+Model	src/Model.hpp	/^class Model {$/;"	c
+OBJS	makefile	/^OBJS = .\/src\/*.cpp$/;"	m
+OBJ_NAME	makefile	/^OBJ_NAME = gameoflife$/;"	m
+RANDOM_UTIL_H	src/RandomUtil.hpp	/^#define RANDOM_UTIL_H$/;"	d
+RLEBUFFER_H	src/RLEbuffer.hpp	/^#define RLEBUFFER_H$/;"	d
+RLEREADER_H	src/RLE_reader.hpp	/^#define RLEREADER_H$/;"	d
+RLE_reader	src/RLE_reader.cpp	/^RLE_reader::RLE_reader(string s) $/;"	f	class:RLE_reader
+RLE_reader	src/RLE_reader.hpp	/^class RLE_reader {$/;"	c
+RLEbuffer	src/RLEbuffer.cpp	/^RLEbuffer::RLEbuffer(string s, size_t maxsize)$/;"	f	class:RLEbuffer
+RLEbuffer	src/RLEbuffer.hpp	/^class RLEbuffer {$/;"	c
+RULE_H	src/Rule.hpp	/^#define RULE_H$/;"	d
+RandomUtil	src/RandomUtil.hpp	/^class RandomUtil$/;"	c
+Rule	src/Rule.hpp	/^class Rule {$/;"	c
+SPACESAMPLE_H	src/SpaceSample.hpp	/^#define SPACESAMPLE_H$/;"	d
+SPACE_H	src/Space.hpp	/^#define SPACE_H$/;"	d
+Space	src/Space.cpp	/^Space::Space(int length, int height)$/;"	f	class:Space
+Space	src/Space.hpp	/^class Space$/;"	c
+SpaceSample	src/SpaceSample.cpp	/^SpaceSample::SpaceSample(std::vector <Cell> const & space, std::vector<Cell>::const_iterator sta/;"	f	class:SpaceSample
+SpaceSample	src/SpaceSample.hpp	/^class SpaceSample$/;"	c
+State	src/Cell.hpp	/^enum class State : bool {$/;"	g	typeref:typename:bool
+__anon6bfb05f90102	src/Space.cpp	/^	std::for_each(mSpace.begin(), mSpace.end(), [probability](Cell & cell)->void { cell.randomize(p/;"	f	function:Space::randomize	typeref:typename:void	file:
+__anonf05449420102	src/RLE_reader.cpp	/^	for_each(testFiles.begin(), testFiles.end(), [](string s)->void {cout << s << endl; });$/;"	f	function:main	typeref:typename:void	file:
+all	makefile	/^all : $(OBJS)$/;"	t
+analyzeDataString	src/RLEbuffer.cpp	/^bool RLEbuffer::analyzeDataString() {$/;"	f	class:RLEbuffer	typeref:typename:bool
+analyzeFile	src/RLE_reader.cpp	/^bool RLE_reader::analyzeFile() {$/;"	f	class:RLE_reader	typeref:typename:bool
+center	src/SpaceSample.cpp	/^Cell const & SpaceSample::center(std::vector<Cell>::const_iterator it) const$/;"	f	class:SpaceSample	typeref:typename:Cell const &
+clean	makefile	/^clean :$/;"	t
+done	src/RLEbuffer.hpp	/^	bool done(){ return (verifyCoherence() && mDone); }$/;"	f	class:RLEbuffer	typeref:typename:bool
+down	src/SpaceSample.cpp	/^void SpaceSample::down() $/;"	f	class:SpaceSample	typeref:typename:void
+filesInPath	src/RLE_reader.cpp	/^std::vector<std::string> filesInPath(std::string folder) {$/;"	f	typeref:typename:std::vector<std::string>
+generateEvent	src/RandomUtil.cpp	/^bool RandomUtil::generateEvent(double probability)$/;"	f	class:RandomUtil	typeref:typename:bool
+getRule	src/Rule.cpp	/^string Rule::getRule() {$/;"	f	class:Rule	typeref:typename:string
+getSpace	src/Space.cpp	/^std::vector<Cell> const & Space::getSpace() const$/;"	f	class:Space	typeref:typename:std::vector<Cell> const &
+left	src/SpaceSample.cpp	/^Cell const & SpaceSample::left(std::vector<Cell>::const_iterator it) const $/;"	f	class:SpaceSample	typeref:typename:Cell const &
+mBordersAlive	src/Space.hpp	/^	bool mBordersAlive = true;$/;"	m	class:Space	typeref:typename:bool
+mBufferSize	src/RLEbuffer.hpp	/^	size_t mBufferSize;$/;"	m	class:RLEbuffer	typeref:typename:size_t
+mCurrLine	src/RLEbuffer.hpp	/^	const string mCurrLine;$/;"	m	class:RLEbuffer	typeref:typename:const string
+mDone	src/RLEbuffer.hpp	/^	bool mDone{ false }; \/\/ '!' char encountered$/;"	m	class:RLEbuffer	typeref:typename:bool
+mExportUniverse	src/RLE_reader.hpp	/^	vector<bool> mExportUniverse{};\/\/contiguous universe to be eventually exported, if valid$/;"	m	class:RLE_reader	typeref:typename:vector<bool>
+mExtractedUniverse	src/RLEbuffer.hpp	/^	vector<bool> mExtractedUniverse;\/\/to be sent to RLE reader if valid$/;"	m	class:RLEbuffer	typeref:typename:vector<bool>
+mFile	src/Controler.hpp	/^	vector<string> mFile;$/;"	m	class:Controller	typeref:typename:vector<string>
+mHeight	src/Space.hpp	/^    int mHeight;$/;"	m	class:Space	typeref:typename:int
+mIndexFile	src/Controler.hpp	/^	int mIndexFile{};$/;"	m	class:Controller	typeref:typename:int
+mIndexSpeed	src/Controler.hpp	/^	int mIndexSpeed{};$/;"	m	class:Controller	typeref:typename:int
+mIt	src/Rule.hpp	/^	vector<string>::iterator mIt = mRules.begin();$/;"	m	class:Rule	typeref:typename:vector<string>::iterator
+mLargeur	src/SpaceSample.hpp	/^	int mLargeur;$/;"	m	class:SpaceSample	typeref:typename:int
+mLenght	src/Space.hpp	/^    int mLenght;$/;"	m	class:Space	typeref:typename:int
+mMaxSize	src/RLEbuffer.hpp	/^	const size_t mMaxSize; \/\/max X size\/width$/;"	m	class:RLEbuffer	typeref:typename:const size_t
+mPath	src/Controler.hpp	/^	string mPath;$/;"	m	class:Controller	typeref:typename:string
+mRLEfile	src/RLE_reader.hpp	/^	ifstream mRLEfile{};$/;"	m	class:RLE_reader	typeref:typename:ifstream
+mRgxComments	src/RLE_reader.hpp	/^	regex mRgxComments{ "(#)([CcNORr].*)" };$/;"	m	class:RLE_reader	typeref:typename:regex
+mRgxInitLine	src/RLE_reader.hpp	/^	regex mRgxInitLine{ "x = ([0-9]+), y = ([0-9]+).*" }; \/\/teste la regle pour sa syntaxe (synta/;"	m	class:RLE_reader	typeref:typename:regex
+mRgxLineFormat	src/RLE_reader.hpp	/^	regex mRgxLineFormat{ "^.*([bo\\\\d\\\\s$!]?)*$" }; \/\/data line format$/;"	m	class:RLE_reader	typeref:typename:regex
+mRgxRuleFormat	src/RLE_reader.hpp	/^	regex mRgxRuleFormat{ "^.*[Bb]([0-9]+)[\/][Ss]([0-9]+)" };$/;"	m	class:RLE_reader	typeref:typename:regex
+mRuleAlive	src/Rule.hpp	/^	vector<int> mRuleAlive;$/;"	m	class:Rule	typeref:typename:vector<int>
+mRuleB	src/RLE_reader.hpp	/^	string mRuleB{};$/;"	m	class:RLE_reader	typeref:typename:string
+mRuleDead	src/Rule.hpp	/^	vector<int> mRuleDead;$/;"	m	class:Rule	typeref:typename:vector<int>
+mRuleS	src/RLE_reader.hpp	/^	string mRuleS{}; \/\/strings pour les regles for now,$/;"	m	class:RLE_reader	typeref:typename:string
+mRules	src/Rule.hpp	/^	vector<string> mRules{ "B3\/S23", "B36\/S23", "B3678\/S34678"};$/;"	m	class:Rule	typeref:typename:vector<string>
+mSpace	src/Space.hpp	/^    std::vector<Cell> mSpace;$/;"	m	class:Space	typeref:typename:std::vector<Cell>
+mSpace	src/SpaceSample.hpp	/^	std::vector<Cell> const & mSpace;$/;"	m	class:SpaceSample	typeref:typename:std::vector<Cell> const &
+mSpace1	src/Model.hpp	/^	Space* mSpace1 = nullptr;$/;"	m	class:Model	typeref:typename:Space *
+mSpace2	src/Model.hpp	/^	Space* mSpace2 = nullptr;$/;"	m	class:Model	typeref:typename:Space *
+mSpeed	src/Controler.hpp	/^	std::array<int, 5> mSpeed{};$/;"	m	class:Controller	typeref:typename:std::array<int,5>
+mState	src/Cell.hpp	/^    State mState;$/;"	m	class:Cell	typeref:typename:State
+mStateIt	src/SpaceSample.hpp	/^	std::vector<Cell>::const_iterator mStateIt;$/;"	m	class:SpaceSample	typeref:typename:std::vector<Cell>::const_iterator
+mStateIt_bas	src/SpaceSample.hpp	/^	std::vector<Cell>::const_iterator mStateIt_bas;$/;"	m	class:SpaceSample	typeref:typename:std::vector<Cell>::const_iterator
+mStateIt_haut	src/SpaceSample.hpp	/^	std::vector<Cell>::const_iterator mStateIt_haut;$/;"	m	class:SpaceSample	typeref:typename:std::vector<Cell>::const_iterator
+mXWidth	src/RLE_reader.hpp	/^	size_t mXWidth{};$/;"	m	class:RLE_reader	typeref:typename:size_t
+mYHeight	src/RLE_reader.hpp	/^	size_t mYHeight{};$/;"	m	class:RLE_reader	typeref:typename:size_t
+main	src/RLE_reader.cpp	/^int main() {$/;"	f	typeref:typename:int
+middle	src/SpaceSample.cpp	/^void SpaceSample::middle()$/;"	f	class:SpaceSample	typeref:typename:void
+model	src/Controler.hpp	/^	Model model;$/;"	m	class:Controller	typeref:typename:Model
+nbNeighbors	src/SpaceSample.hpp	/^	int nbNeighbors = 0;$/;"	m	class:SpaceSample	typeref:typename:int
+nextRule	src/Rule.cpp	/^void Rule::nextRule() {$/;"	f	class:Rule	typeref:typename:void
+prevRule	src/Rule.cpp	/^void Rule::prevRule() {$/;"	f	class:Rule	typeref:typename:void
+randomDevice	src/RandomUtil.cpp	/^std::random_device RandomUtil::randomDevice;$/;"	m	class:RandomUtil	typeref:typename:std::random_device
+randomDevice	src/RandomUtil.hpp	/^	static std::random_device randomDevice;$/;"	m	class:RandomUtil	typeref:typename:std::random_device
+randomGenerator	src/RandomUtil.hpp	/^	static std::mt19937 randomGenerator;$/;"	m	class:RandomUtil	typeref:typename:std::mt19937
+randomize	src/Cell.cpp	/^void Cell::randomize(double probability)$/;"	f	class:Cell	typeref:typename:void
+randomize	src/Space.cpp	/^void Space::randomize(double probability) {$/;"	f	class:Space	typeref:typename:void
+rebuild	makefile	/^rebuild :$/;"	t
+right	src/SpaceSample.cpp	/^Cell const & SpaceSample::right(std::vector<Cell>::const_iterator it) const$/;"	f	class:SpaceSample	typeref:typename:Cell const &
+setBorders	src/Space.cpp	/^void Space::setBorders()$/;"	f	class:Space	typeref:typename:void
+setIterateurs	src/SpaceSample.cpp	/^void SpaceSample::setIterateurs(std::vector<Cell>::const_iterator it)$/;"	f	class:SpaceSample	typeref:typename:void
+setSpace	src/Space.cpp	/^void Space::setSpace() {$/;"	f	class:Space	typeref:typename:void
+setState	src/Cell.cpp	/^void Cell::setState(State state)$/;"	f	class:Cell	typeref:typename:void
+state	src/Cell.cpp	/^State Cell::state() const$/;"	f	class:Cell	typeref:typename:State
+stateOutcome	src/Rule.cpp	/^bool Rule::stateOutcome(int nbAlive, Cell state) {$/;"	f	class:Rule	typeref:typename:bool
+test	src/RLE_reader.cpp	/^void test(string s) {$/;"	f	typeref:typename:void
+up	src/SpaceSample.cpp	/^void SpaceSample::up()$/;"	f	class:SpaceSample	typeref:typename:void
+updateSpace	src/Model.cpp	/^	void Model::updateSpace() {$/;"	f	class:Model	typeref:typename:void
+verifyCoherence	src/RLEbuffer.cpp	/^bool RLEbuffer::verifyCoherence() {$/;"	f	class:RLEbuffer	typeref:typename:bool

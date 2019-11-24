@@ -1,4 +1,4 @@
-#include "RandomUtil.h"
+#include "RandomUtil.hpp"
 
 
 std::random_device RandomUtil::randomDevice;

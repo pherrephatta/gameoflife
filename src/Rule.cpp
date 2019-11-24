@@ -1,4 +1,4 @@
-#include "Rule.h"
+#include "Rule.hpp"
 
 //next et previous rules
 void Rule::nextRule() {

@@ -1,8 +1,8 @@
 #ifndef SPACE_H
 #define SPACE_H
 
-#include <Vector>
-#include "Cell.h"
+#include <vector>
+#include "Cell.hpp"
 
 class Space
 {

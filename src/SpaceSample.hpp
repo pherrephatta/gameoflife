@@ -1,7 +1,7 @@
 #ifndef SPACESAMPLE_H
 #define SPACESAMPLE_H
 
-#include  "Cell.h"
+#include  "Cell.hpp"
 #include <vector>
 
 class SpaceSample

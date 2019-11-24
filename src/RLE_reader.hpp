@@ -1,8 +1,11 @@
+#ifndef RLEREADER_H
+#define RLEREADER_H
+
 #include <fstream>
 #include <string>
 #include <regex>
 
-#include "RLEbuffer.h"
+#include "RLEbuffer.hpp"
 
 using namespace std;
 class RLE_reader {
@@ -28,3 +31,5 @@ public:
 
 	bool analyzeFile();
 };
+
+#endif // RLEREADER_H

@@ -1,4 +1,4 @@
-#include "RLEbuffer.h"
+#include "RLEbuffer.hpp"
 #include <iostream>
 
 ///test
