@@ -4,6 +4,7 @@
 #include <array>
 #include "Model.hpp"
 #include "View.hpp"
+#include "KeyBinding.hpp"
 
 class Controller {
 
@@ -25,7 +26,7 @@ private:
 	Model &mModel;
 	View &mView;
 
-	enum class KeyBinding : char {
+	enum class Keys : char {
 		Action_Quit					= 27,	// escape character
 		Action_Space				= 32, 	// space character
 		Speed_x1 					= '1',
@@ -52,6 +53,7 @@ private:
 		GenMode_FileNext 			= 'C',
 		_count_
 	};
+	KeyBinding mModelAction;
 
 	enum class SpeedMode {
 		Speed1 	= 0,
@@ -65,6 +67,8 @@ private:
 		Speed9 	= 8,
 		_count_
 	};
+	SpeedMode mSpeedMode;
+	KeyBinding mSpeedAction;
 
 	enum class GenerationMode {
 		Random1 	= 0,
@@ -75,6 +79,8 @@ private:
 		Random50 	= 5,
 		_count_
 	};
+	GenerationMode mGenerationMode;
+	KeyBinding mGenerationAction;
 
 	// TODO change place
 	/*
@@ -86,7 +92,7 @@ private:
 	*/
 
 	//TODO temporary event handler
-	void handleEvents(View& window);
+	void quit();
 };
 
 #endif //CONTROLER_H

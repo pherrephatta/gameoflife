@@ -2,41 +2,23 @@
 #include <limits>
 
 Controller::Controller(Model &model, View &view) 
-	: mModel{model}, mView{view} 
+	: mModel{model}, mView{view}, mModelAction(),
+	mGenerationAction(0, (int)GenerationMode::_count_), 
+	mSpeedAction(0, (int)SpeedMode::_count_)
 {
-}
-
-void Controller::handleEvents(View& view) {
-
-	switch (view.window().event().type) {
-		case SDL_WINDOWEVENT: {
-			break;
-		}
-
-		case SDL_QUIT: {
-			mQuit = true;
-			break;
-		}
-
-		case SDL_KEYDOWN: {
-			switch(view.window().event().key.keysym.sym) {
-				case SDLK_ESCAPE:
-					mQuit = true;
-					break;
-
-				default: break;
-			}
-			break;
-		}
-
-		default: break;
-	}
+#define args_t Model& model, Controller& controller
+	mModelAction.setAction((int)Keys::Action_Quit, [](args_t)->void{ controller.quit(); });
 }
 
 void Controller::start() {
 	do {
 		while (SDL_PollEvent(&mView.window().event()))
-			handleEvents(mView);
+			mModelAction.doActionFromKey(mView.window().event().key.keysym.sym, mModel, *this);
+			mModel.updateSpace();
 		mView.mRenderModel(mModel);
 	} while (!mQuit);
+}
+
+void Controller::quit() {
+	mQuit = true;
 }

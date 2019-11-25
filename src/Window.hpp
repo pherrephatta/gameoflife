@@ -19,8 +19,8 @@ public:
 	SDL_Window*& wdHandle(); 
 	SDL_Renderer*& wdRenderer();
 	SDL_Event& event(); 
-	uint16_t logWidth();
-	uint16_t logHeight();
+	uint16_t logWidth() const;
+	uint16_t logHeight() const;
 
 private:
 	uint16_t mWdWidth;									// Window width (pixels)

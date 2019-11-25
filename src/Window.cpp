@@ -42,5 +42,5 @@ Window::~Window() {
 SDL_Window*& Window::wdHandle() {return mWdHandle;} 
 SDL_Renderer*& Window::wdRenderer() {return mWdRenderer;}
 SDL_Event& Window::event() {return mEvent;}
-uint16_t Window::logWidth() {return mLogWidth;}
-uint16_t Window::logHeight() {return mLogHeight;}
+uint16_t Window::logWidth() const {return mLogWidth;}
+uint16_t Window::logHeight() const {return mLogHeight;}
