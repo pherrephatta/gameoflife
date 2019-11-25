@@ -6,30 +6,30 @@
 
 class Space
 {
-    private: 
+private:
 
-    std::vector<Cell> mSpace;
-    int mLenght;
-    int mHeight;
+	std::vector<Cell> mSpace;
+	int mLenght;
+	int mHeight;
 	bool mBordersAlive = true;
 
-    
-    //Color mColor; CLASSE COULEUR A IMPLANTER 
 
-   public: 
-    //Constructeurs
+	//Color mColor; CLASSE COULEUR A IMPLANTER 
+
+public:
+	//Constructeurs
 	Space() = default;
-    Space(int lenght, int height);
+	Space(int lenght, int height);
 
 
-    //Destructeurs
+	//Destructeurs
 	~Space() = default;
 
 	//////////////////////////////////////////////////////////////////////////
 	//! \brief Accesseur de l'état
 	//////////////////////////////////////////////////////////////////////////
-	std::vector<Cell>const & getSpace() const; //ou pas const?
-    
+	std::vector<Cell> & getSpace(); //ou pas const?
+
 	void setSpace();
 
 	void setBorders();
@@ -47,10 +47,10 @@ class Space
 	}
 
 
-    
+
 	//Necessaire ou non?
 
-    //Effectue la conversion entre un état et un caractère.
+	//Effectue la conversion entre un état et un caractère.
 	//char toChar() const;
 
 	//static void setRepresentation(char inactive, char active);

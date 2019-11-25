@@ -12,21 +12,21 @@ enum class State : bool {
 class Cell
 {
 public:
-	
 
-    private: 
 
-    State mState;
-    
-    //Color mColor; CLASSE COULEUR A IMPLANTER 
+private:
 
-    public: 
-    //Constructeurs
+	State mState;
+
+	//Color mColor; CLASSE COULEUR A IMPLANTER 
+
+public:
+	//Constructeurs
 	Cell() = default;
-    Cell(State state);
+	Cell(State state);
 
 
-    //Destructeurs
+	//Destructeurs
 	~Cell() = default;
 
 	//////////////////////////////////////////////////////////////////////////
@@ -35,12 +35,12 @@ public:
 	State state() const; //ou pas const?
 
 
-    
+
 	void setState(State state);
 
 	void randomize(double probability = 0.5);
 
-    
+
 
 };
 

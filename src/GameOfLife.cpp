@@ -12,7 +12,6 @@ int main(int argc, char *argv[]) {
 		case 2: {
 			assert(atoi(argv[1]) > 0);
 			wdWidth = wdHeight = atoi(argv[1]);
-			printf("%d %d\n", wdWidth, wdHeight);
 			break;
 		}
 		case 3: {
@@ -20,11 +19,9 @@ int main(int argc, char *argv[]) {
 			assert(atoi(argv[2]) > 0);
 			wdWidth = atoi(argv[1]);
 			wdHeight = atoi(argv[2]);
-			printf("%d %d\n", wdWidth, wdHeight);
 			break;
 		}
 		default: {
-			printf("%d %d\n", wdWidth, wdHeight);
 			break;
 		}
 	}

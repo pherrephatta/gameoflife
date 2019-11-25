@@ -94,13 +94,14 @@ bool RLE_reader::analyzeFile() {
 		mRLEfile.close();
 	}
 
-	
+	/*
 		for (size_t i{ 0 }; i < mXWidth*mYHeight; ++i) {
 			if (i%mXWidth == 0 && i>2) {
 				cout << '|'<<endl;
 			}
 			cout << (mExportUniverse.at(i)? '*' : ' ');
 		}
+	*/
 		return true;
 }
 

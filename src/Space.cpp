@@ -16,7 +16,7 @@ Space::Space(int length, int height)
 	setBorders();
 }
 
-std::vector<Cell> const & Space::getSpace() const
+std::vector<Cell>  & Space::getSpace()
 {
 	return mSpace;
 }
@@ -28,7 +28,7 @@ void Space::setSpace() {
 }
 
 void Space::setBorders()
-{	
+{
 	if (!mBordersAlive) {
 
 		int t{ 0 };
