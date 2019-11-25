@@ -1,8 +1,8 @@
 #ifndef SPACE_H
 #define SPACE_H
 
-#include <Vector>
-#include "Cell.h"
+#include <vector>
+#include "Cell.hpp"
 
 class Space
 {
@@ -28,7 +28,7 @@ class Space
 	//////////////////////////////////////////////////////////////////////////
 	//! \brief Accesseur de l'état
 	//////////////////////////////////////////////////////////////////////////
-	std::vector<Cell>const & getSpace() const; //ou pas const?
+	std::vector<Cell> & getSpace() ; //ou pas const?
     
 	void setSpace();
 
@@ -41,6 +41,10 @@ class Space
 	int Lenght() {
 		return mLenght;
 	};
+
+	int Height() {
+		return mHeight;
+	}
 
 
     

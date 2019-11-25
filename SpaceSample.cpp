@@ -1,4 +1,4 @@
-#include "SpaceSample.h"
+#include "SpaceSample.hpp"
 #include <iostream>
 
 SpaceSample::SpaceSample(std::vector <Cell> const & space, std::vector<Cell>::const_iterator stateIt, int largeur)
@@ -7,33 +7,20 @@ SpaceSample::SpaceSample(std::vector <Cell> const & space, std::vector<Cell>::co
 	mStateIt_haut = mStateIt;
 	mStateIt_bas = mStateIt;
 	
-	
 }
 
-/*std::vector<State> SpaceSample::Neighborhood()
-{
-	return std::vector<State>();
-}*/
 
-/*int SpaceSample::calculateNeighborhood()
-{
-	//TODO: Clear Vecteur ou Effacer ceux qu'on a plus besoin 
-	int nb_of_neighbors{};
-	for (int i{}; i < mNeighborhood.size(); ++i)
-	{
-		nb_of_neighbors += (int)mNeighborhood[i].state();
-	}
-	return nb_of_neighbors;
-}*/
 
-void SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it)
+int SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it)
 {	
+	nbNeighbors = 0;
 	setIterateurs(it);
 	up();
 	middle(); 
 	down(); 
+	return nbNeighbors;
 	//std::cout << "nb de voisins : " << calculateNeighborhood() << std::endl;
-	nbNeighbors = 0;
+	
 }
 
 Cell const & SpaceSample::center(std::vector<Cell>::const_iterator it) const
