@@ -37,6 +37,7 @@ void Controller::start() {
 	do {
 		while (SDL_PollEvent(&mView.window().event()))
 			handleEvents(mView);
+		mModel.updateSpace();
 		mView.mRenderModel(mModel);
 	} while (!mQuit);
 }

@@ -31,7 +31,7 @@ public:
     
 	
 
-	void GetNeighbors(std::vector<Cell>::const_iterator it);
+	int GetNeighbors(std::vector<Cell>::const_iterator it);
 
 	Cell const & left(std::vector<Cell>::const_iterator it) const;
 	Cell const & right(std::vector<Cell>::const_iterator it) const;

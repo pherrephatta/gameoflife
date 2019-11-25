@@ -26,14 +26,16 @@ SpaceSample::SpaceSample(std::vector <Cell> const & space, std::vector<Cell>::co
 	return nb_of_neighbors;
 }*/
 
-void SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it)
+int SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it)
 {	
+	nbNeighbors = 0;
 	setIterateurs(it);
 	up();
 	middle(); 
 	down(); 
+	return nbNeighbors;
 	//std::cout << "nb de voisins : " << calculateNeighborhood() << std::endl;
-	nbNeighbors = 0;
+	
 }
 
 Cell const & SpaceSample::center(std::vector<Cell>::const_iterator it) const

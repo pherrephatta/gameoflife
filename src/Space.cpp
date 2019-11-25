@@ -16,7 +16,7 @@ Space::Space(int length, int height)
 	setBorders();
 }
 
-std::vector<Cell> const & Space::getSpace() const
+std::vector<Cell>  & Space::getSpace() 
 {
 	return mSpace;
 }
