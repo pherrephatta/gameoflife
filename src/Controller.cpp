@@ -12,9 +12,11 @@ Controller::Controller(Model &model, View &view)
 
 void Controller::start() {
 	do {
-		while (SDL_PollEvent(&mView.window().event()))
+		while (SDL_PollEvent(&mView.window().event())) {
 			mModelAction.doActionFromKey(mView.window().event().key.keysym.sym, mModel, *this);
-			mModel.updateSpace();
+		}
+
+		mModel.updateSpace();
 		mView.mRenderModel(mModel);
 	} while (!mQuit);
 }
