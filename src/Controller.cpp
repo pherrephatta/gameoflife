@@ -8,12 +8,17 @@ Controller::Controller(Model &model, View &view)
 {
 #define args_t Model& model, Controller& controller
 	mModelAction.setAction((int)Keys::Action_Quit, [](args_t)->void{ controller.quit(); });
+	mModelAction.setAction((int)Keys::Action_Border, [](args_t)->void { model.space1().BordersAlive(); });
+
+	//Action_Border	
 }
 
 void Controller::start() {
 	do {
 		while (SDL_PollEvent(&mView.window().event())) {
 			mModelAction.doActionFromKey(mView.window().event().key.keysym.sym, mModel, *this);
+			
+			
 		}
 
 		mModel.updateSpace();

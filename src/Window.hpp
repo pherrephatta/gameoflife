@@ -25,8 +25,8 @@ public:
 private:
 	uint16_t mWdWidth;									// Window width (pixels)
 	uint16_t mWdHeight;									// Window height (pixels
-	uint16_t mPxWidth = 3;								// Pixel logical width	
-	uint16_t mPxHeight = 3;								// Pixel logical height
+	uint16_t mPxWidth = 10;								// Pixel logical width	
+	uint16_t mPxHeight = 10;								// Pixel logical height
 	uint16_t mLogWidth;									// Logical Width (wdWidth / pxWidth)
 	uint16_t mLogHeight;								// Logical Height (wdHeight / pxHeight)
 

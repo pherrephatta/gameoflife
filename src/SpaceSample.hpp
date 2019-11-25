@@ -15,12 +15,6 @@ public:
 
 
 
-
-
-
-
-
-
 	//Destructeurs
 	~SpaceSample() = default;
 
