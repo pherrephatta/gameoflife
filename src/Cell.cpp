@@ -1,0 +1,51 @@
+<<<<<<< HEAD:Cell.cpp
+#include "Cell.hpp"
+
+Cell::Cell(State state)
+{
+
+	mState = state;
+}
+
+State Cell::state() const
+{
+	return mState;
+}
+
+
+
+void Cell::setState(State state)
+{
+	mState = state;
+}
+
+void Cell::randomize(double probability)
+{
+	mState = (State)RandomUtil::generateEvent(probability);
+}
+=======
+#include "Cell.hpp"
+
+Cell::Cell(State state)
+{
+
+	mState = state;
+}
+
+State Cell::state() const
+{
+	return mState;
+}
+
+
+
+void Cell::setState(State state)
+{
+	mState = state;
+}
+
+void Cell::randomize(double probability)
+{
+	mState = (State)RandomUtil::generateEvent(probability);
+}
+>>>>>>> master:src/Cell.cpp
