@@ -1,4 +1,4 @@
-#include "Cell.h"
+#include "Cell.hpp"
 
 State Cell::state() const
 {

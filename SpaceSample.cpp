@@ -1,4 +1,4 @@
-#include "SpaceSample.h"
+#include "SpaceSample.hpp"
 #include <iostream>
 
 SpaceSample::SpaceSample(std::vector <Cell> const & space, std::vector<Cell>::const_iterator stateIt, int largeur)

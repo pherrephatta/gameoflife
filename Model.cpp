@@ -1,4 +1,4 @@
-#include "Model.h"
+#include "Model.hpp"
 
 
 	/*
@@ -23,6 +23,9 @@ private:
 		mSpace1 = new Space(width, height);
 		mSpace2 = new Space(*mSpace1);
 	}
+
+	Space& Model::space1(){return *mSpace1;}
+	Space& Model::space2(){return *mSpace2;}
 
 	void Model::updateSpace() {
 
