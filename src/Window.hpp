@@ -1,7 +1,12 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+#include <SDL.h>
+#else
 #include <SDL2/SDL.h>
+#endif
+
 #include <cstdint>
 
 class Window {

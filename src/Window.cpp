@@ -1,4 +1,5 @@
 #include "Window.hpp"
+#include <cstdio>
 
 Window::Window(uint16_t screen_width, uint16_t screen_height) {
 	// SDL Initialization
