@@ -10,7 +10,7 @@ public:
 
 
 	//Constructeurs
-	SpaceSample() = default;
+	SpaceSample() = delete;
 	SpaceSample(std::vector<Cell> const & space, std::vector<Cell>::const_iterator stateIt, int largeur);
 
 	//Destructeurs
