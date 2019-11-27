@@ -13,7 +13,7 @@
 Space::Space(int length, int height)
 	: mSpace(length*height), mLenght{ length }, mHeight{ height }
 {
-	setSpace();
+	setSpaceMid();
 }
 
 std::vector<Cell>  & Space::getSpace()
@@ -21,15 +21,19 @@ std::vector<Cell>  & Space::getSpace()
 	return mSpace;
 }
 
-void Space::setSpace() {
+void Space::setSpaceMid() { //sets the space with the read RLE pattern in the middle
 
-	RLE_reader r("gliderduplicator.rle");
+	RLE_reader r("honeycomb_synth.rle");
 	r.analyzeFile();
 	vector<bool> RLE_universe = r.ExportUniverse();
 
 	size_t cpt_pattern{ 0 }; //counter for width of rle pattern, when we get to its max value, we put the space cursor at the correct following XY.
 	size_t patternWidth{ r.rleWidth() };
-	size_t SpaceCursor{ 0 };
+	size_t SpaceCursor{ ((size_t)(mLenght*mHeight) / 2) };
+	SpaceCursor -= (r.rleWidth() / 2);
+	SpaceCursor -= (r.rleHeight()*mLenght)/2;
+ //position in our model/space	//eventually add method to return cursor at XY where the printed pattern will appear 
+
 	for (bool b : RLE_universe) {
 		mSpace[SpaceCursor].setState(b ? State::ACTIVE : State::INACTIVE);
 		++cpt_pattern;

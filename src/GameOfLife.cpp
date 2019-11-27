@@ -4,8 +4,8 @@
 
 int main(int argc, char *argv[]) {
 
-	uint16_t wdWidth = 400;
-	uint16_t wdHeight = 300;
+	uint16_t wdWidth = 1000;
+	uint16_t wdHeight = 1000;
 
 	// Changing window size at execution
 	switch(argc) {

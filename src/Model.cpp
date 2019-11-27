@@ -29,7 +29,7 @@ void Model::updateSpace() {
 
 	for (; it != (*mSpace1).getSpace().end(); it++) {
 	
-		(*it2).setState(((State)(mRules[mIndexRule].outcome(((bool)(*it).state()), facade.GetNeighbors(it)))));
+		(*it2).setState(((State)(mRules[0].outcome(((bool)(*it).state()), facade.GetNeighbors(it)))));
 
 		++it2;
 	}
