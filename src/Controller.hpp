@@ -38,7 +38,7 @@ private:
 		Speed_x7					= '7',
 		Speed_x8					= '8',
 		Speed_x9					= '9',
-		Action_Rule					= 'R',
+		Action_Rule					= 'r',
 		Action_Border				= 'B',
 		Action_ActiveCellColor 		= 'P',
 		Action_DeadCellColor 		= 'O',

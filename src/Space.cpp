@@ -23,7 +23,7 @@ std::vector<Cell>  & Space::getSpace()
 
 void Space::setSpaceMid() { //sets the space with the read RLE pattern in the middle
 
-	RLE_reader r("gosperglidergungliderdestruction.rle");
+	RLE_reader r("honeycomb_synth.rle");
 	r.analyzeFile();
 	vector<bool> RLE_universe = r.ExportUniverse();
 

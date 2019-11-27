@@ -21,8 +21,6 @@ public:
 	unsigned char ruleB() { return mRuleB; }
 	unsigned char ruleS() { return mRuleS; }
 	bool outcome(bool state, int NbOfNeighbours);
-
-
 };
 
 #endif //RULE_H
