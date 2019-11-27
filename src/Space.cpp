@@ -53,13 +53,13 @@ void Space::setBorders()
 void Space::BordersAlive()
 {
 	mBordersAlive = !mBordersAlive;
-	std::cout << "borders changed";
+	//std::cout << "borders changed";
 }
 
 void Space::randomize(double probability) {
 
 	std::for_each(mSpace.begin(), mSpace.end(), [probability](Cell & cell)->void { cell.randomize(probability); });
-	std::cout << "randomize with a probability of " << probability;
+	//std::cout << "randomize with a probability of " << probability;
 
 }
 
