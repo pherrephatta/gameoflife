@@ -11,6 +11,7 @@ using namespace std;
 class Rule {
 	unsigned char mRuleB; //rules are expressed as 8 bits values. ex: if for birth 2 or 4 alive neighbours are necessary. the UC representing such rule is 0000 1010.
 	unsigned char mRuleS; //
+	
 
 public:
 	//constructeur et destructeur
@@ -20,6 +21,8 @@ public:
 	unsigned char ruleB() { return mRuleB; }
 	unsigned char ruleS() { return mRuleS; }
 	bool outcome(bool state, int NbOfNeighbours);
+
+
 };
 
 #endif //RULE_H

@@ -3,23 +3,6 @@
 
 
 
-/*
-public:
-Model()		= default;
-~Model()	= default;
-
-//mettre a jour l'espace
-void updateSpace();
-
-//initialiser l'espace
-void initSpace();
-
-private:
-
-	vector<Rule> mRule;
-	Space* mSpace1;
-	Space* mspace2;
-	*/
 
 Model::Model(int width, int height) {
 	mSpace1 = new Space(width, height);
@@ -31,6 +14,12 @@ Model::Model(int width, int height) {
 Space& Model::space1() { return *mSpace1; }
 Space& Model::space2() { return *mSpace2; }
 
+void Model::nextRule(){
+	(mIndexRule == (mRules.size() - 1)) ? mIndexRule = 0 : ++mIndexRule;
+	std::cout << "index" << mIndexRule;
+
+}
+
 void Model::updateSpace() {
 	std::vector<Cell>::const_iterator it = (*mSpace1).getSpace().begin();
 	SpaceSample facade{ SpaceSample((*mSpace1).getSpace(), it, (*mSpace1).Lenght()) };
@@ -39,23 +28,21 @@ void Model::updateSpace() {
 
 
 	for (; it != (*mSpace1).getSpace().end(); it++) {
+		//if(mSpace1->BordersAlive && 
+		//	((int)(it - (*mSpace1).getSpace().begin()) < mSpace1->Lenght() || // if first row
+		//	(int(it - (*mSpace1).getSpace().begin()) >= int((*mSpace1).getSpace().size() - mSpace1->Lenght())) ||// if last row
+		//	(int(it - ((*mSpace1).getSpace().begin()) + 1)) % ((*mSpace1).getSpace().size()) == 0)  || // if last column			
 
+		(*it2).setState(((State)(mRules[mIndexRule].outcome(((bool)(*it).state()), facade.GetNeighbors(it)))));
 
-
-
-
-		(*it2).setState(((State)(regle1.outcome(((bool)(*it).state()), facade.GetNeighbors(it)))));
-
-		it2++;
-
-
+		++it2;
 	}
 
 	Space* temp{ mSpace1 };
 	mSpace1 = mSpace2;
 	mSpace2 = temp;
 
-
+	(*mSpace1).setBorders();
 
 
 

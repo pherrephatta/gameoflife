@@ -34,7 +34,7 @@ public:
 
 	void setBorders();
 
-	void BordersAlive(bool b);
+	void BordersAlive();
 
 	void randomize(double probability = 0.5);
 
