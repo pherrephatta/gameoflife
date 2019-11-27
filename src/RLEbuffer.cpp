@@ -1,7 +1,5 @@
-#include "RLEbuffer.h"
+#include "RLEbuffer.hpp"
 #include <iostream>
-
-///test
 
 using namespace std;
 
@@ -17,7 +15,7 @@ bool RLEbuffer::analyzeDataString() {
 	for (char c : mCurrLine) {
 
 		if (c == 'b' || c == 'o') {
-			mBufferSize = (mBufferSize == 0) ? 1 : mBufferSize; // si on a rien dans le buffer size, il est de 1 (avec l'état selon b ou o). pratique pour lire par ex: obo24b24o
+			mBufferSize = (mBufferSize == 0) ? 1 : mBufferSize; // si on a rien dans le buffer size, il est de 1 (avec l'¿tat selon b ou o). pratique pour lire par ex: obo24b24o
 			for (size_t i{ 0 }; i < mBufferSize; ++i) {
 				mExtractedUniverse.push_back(c == 'o' ? true : false); // b = vivant, 0 = mort
 			}
@@ -35,7 +33,7 @@ bool RLEbuffer::analyzeDataString() {
 			mDone = true;
 		}
 		else{
-			if (mDone&&(c == '#' || c== ' ' || c =='\n')) //si on a atteint la fin des données et que le prochain char est un debut de commentaire ou "rien"
+			if (mDone&&(c == '#' || c== ' ' || c =='\n')) //si on a atteint la fin des donn¿es et que le prochain char est un debut de commentaire ou "rien"
 			{
 				return true;
 			}
@@ -44,7 +42,7 @@ bool RLEbuffer::analyzeDataString() {
 		}
 
 	}
-	//si on se rend ici, a on évalué chaque char de la chaine
+	//si on se rend ici, a on ¿valu¿ chaque char de la chaine
 	size_t valBeforeDollar = mBufferSize; //tldr: nb of dead lines to insert after current line. on garde en memoire la possible valoir numerique devant le signe de piasse; celui ci nous indique le nombre de lignes mortes a inserer apres avoir rempli le restant de la ligne actuelle avec des morts (si applicable).
 	
 	mBufferSize = mMaxSize - mExtractedUniverse.size();
@@ -62,6 +60,3 @@ bool RLEbuffer::analyzeDataString() {
 
 	return true;
 }
-
-
-

@@ -1,18 +1,17 @@
 #ifndef SPACESAMPLE_H
 #define SPACESAMPLE_H
 
-#include  "Cell.h"
+#include  "Cell.hpp"
 #include <vector>
 
 class SpaceSample
 {
 public:
-	
 
-    //Constructeurs
+
+	//Constructeurs
 	SpaceSample() = default;
 	SpaceSample(std::vector<Cell> const & space, std::vector<Cell>::const_iterator stateIt, int largeur);
-	
 
 
 
@@ -21,28 +20,29 @@ public:
 
 
 
-    //Destructeurs
+
+	//Destructeurs
 	~SpaceSample() = default;
 
 	//////////////////////////////////////////////////////////////////////////
 	//! \brief Accesseur de l'état
 	//////////////////////////////////////////////////////////////////////////
 
-    
-	
 
-	void GetNeighbors(std::vector<Cell>::const_iterator it);
+
+
+	int GetNeighbors(std::vector<Cell>::const_iterator it);
 
 	Cell const & left(std::vector<Cell>::const_iterator it) const;
 	Cell const & right(std::vector<Cell>::const_iterator it) const;
 	Cell const & center(std::vector<Cell>::const_iterator it) const;
 	void up();
 	void middle();
-	void down() ;
+	void down();
 	void setIterateurs(std::vector<Cell>::const_iterator it);
-	
 
-	
+
+
 private:
 
 
@@ -53,12 +53,12 @@ private:
 	std::vector<Cell>::const_iterator mStateIt_bas;
 	int mLargeur;
 	int nbNeighbors = 0;
-	
+
 };
 
 
-    
-	
+
+
 
 
 

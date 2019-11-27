@@ -1,9 +1,17 @@
-#include "Cell.h"
+#include "Cell.hpp"
+
+Cell::Cell(State state)
+{
+
+	mState = state;
+}
 
 State Cell::state() const
 {
 	return mState;
 }
+
+
 
 void Cell::setState(State state)
 {
