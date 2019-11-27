@@ -26,8 +26,8 @@ private:
 	//vector<Rule> mRule;
 	Space* mSpace1 = nullptr;
 	Space* mSpace2 = nullptr;
-	Rule regle1{ Rule("23", "3") };
-	std::vector<Rule> mRules{ Rule("23", "3"), Rule("36", "23") , Rule("3678", "34678"), Rule("1", "7") };
+	//Rule regle1{ Rule("23", "3") };
+	std::vector<Rule> mRules{ Rule("3", "23"), Rule("36", "23") , Rule("3678", "34678"), Rule("1", "7") };
 	
 	unsigned int mIndexRule{ 0 };
 };
