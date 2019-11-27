@@ -1,5 +1,6 @@
 #include "Space.hpp"
 #include "Cell.hpp"
+#include "RLE_reader.hpp"
 
 
 
@@ -12,8 +13,7 @@
 Space::Space(int length, int height)
 	: mSpace(length*height), mLenght{ length }, mHeight{ height }
 {
-	randomize();
-	setBorders();
+	setSpace();
 }
 
 std::vector<Cell>  & Space::getSpace()
@@ -23,8 +23,23 @@ std::vector<Cell>  & Space::getSpace()
 
 void Space::setSpace() {
 
-	//RLE 
+	RLE_reader r("gliderduplicator.rle");
+	r.analyzeFile();
+	vector<bool> RLE_universe = r.ExportUniverse();
 
+	size_t cpt_pattern{ 0 }; //counter for width of rle pattern, when we get to its max value, we put the space cursor at the correct following XY.
+	size_t patternWidth{ r.rleWidth() };
+	size_t SpaceCursor{ 0 };
+	for (bool b : RLE_universe) {
+		mSpace[SpaceCursor].setState(b ? State::ACTIVE : State::INACTIVE);
+		++cpt_pattern;
+		++SpaceCursor;
+		if (cpt_pattern >= patternWidth) {
+			cpt_pattern=0;
+			SpaceCursor += (mLenght - r.rleWidth());
+		}
+		
+	}
 }
 
 void Space::setBorders()

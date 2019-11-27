@@ -32,6 +32,9 @@ public:
 	unsigned char ruleB();
 	unsigned char ruleS();
 	bool analyzeFile();
+	const vector<bool> ExportUniverse() { return mExportUniverse; }
+	const size_t rleWidth() { return mXWidth; }
+	const size_t rleHeight() { return mYHeight; }
 };
 
 #endif // RLEREADER_H
