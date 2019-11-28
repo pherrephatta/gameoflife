@@ -47,7 +47,7 @@ void Space::setBorders()
 	if (!mBordersAlive) {
 
 		int t{ 0 };
-		for (int i{ 0 }; i < mLenght; ++i)
+		for (int i{ 0 }; i < mHeight; ++i)
 		{
 			for (int j{ 0 }; j < mLenght; ++j)
 			{
