@@ -30,7 +30,7 @@ public:
 	//////////////////////////////////////////////////////////////////////////
 	std::vector<Cell> & getSpace(); //ou pas const?
 
-	void setSpaceMid();
+	void setSpace();
 
 	void setBorders();
 

@@ -13,12 +13,23 @@ public:
 	SpaceSample() = delete;
 	SpaceSample(std::vector<Cell> const & space, std::vector<Cell>::const_iterator stateIt, int largeur);
 
+
+
+
+
+
+
+
+
 	//Destructeurs
 	~SpaceSample() = default;
 
 	//////////////////////////////////////////////////////////////////////////
 	//! \brief Accesseur de l'état
 	//////////////////////////////////////////////////////////////////////////
+
+
+
 
 	int GetNeighbors(std::vector<Cell>::const_iterator it);
 

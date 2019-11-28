@@ -22,13 +22,21 @@ public:
 	unsigned int indexRule() { return mIndexRule; };
 	void nextRule();
 
+	uint8_t deadCellColor();
+	uint8_t liveCellColor();
+	void mSetDeadColor();
+	void mSetLiveColor();
+
 private:
 	//vector<Rule> mRule;
 	Space* mSpace1 = nullptr;
 	Space* mSpace2 = nullptr;
-	//Rule regle1{ Rule("23", "3") };
+	Rule regle1{ Rule("123", "456") };
 	std::vector<Rule> mRules{ Rule("3", "23"), Rule("36", "23") , Rule("3678", "34678"), Rule("1", "7") };
-	
+
+	int mUpdateTime{1};
+	uint8_t mDeadCellColor{};
+	uint8_t mLiveCellColor{};
 	unsigned int mIndexRule{ 0 };
 };
 

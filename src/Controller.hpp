@@ -14,7 +14,6 @@ public:
 	Controller(Model &model, View &view);
 	~Controller() = default;
 
-	void start();
 	// TODO change place
 	/*
 	//changer vitesse de l'animation
@@ -23,6 +22,7 @@ public:
 
 private:
 	bool mQuit = false;
+	const Uint8 *mKeyState; 				// SDL keystate array (for held vs pressed keys)
 	Model &mModel;
 	View &mView;
 
@@ -38,19 +38,19 @@ private:
 		Speed_x7					= '7',
 		Speed_x8					= '8',
 		Speed_x9					= '9',
-		Action_Rule					= 'R',
-		Action_Border				= 'B',
-		Action_ActiveCellColor 		= 'P',
-		Action_DeadCellColor 		= 'O',
-		GenMode_Random1 			= 'A',
-		GenMode_Random5 			= 'S',
-		GenMode_Random10 			= 'D',
-		GenMode_Random15 			= 'F',
-		GenMode_Random25 			= 'G',
-		GenMode_Random50 			= 'H',
-		GenMode_FilePrev 			= 'Z',
-		GenMode_FileSame 			= 'X',
-		GenMode_FileNext 			= 'C',
+		Action_Rule					= 'r',
+		Action_Border				= 'b',
+		Action_ActiveCellColor 		= 'p',
+		Action_DeadCellColor 		= 'o',
+		GenMode_Random1 			= 'a',
+		GenMode_Random5 			= 's',
+		GenMode_Random10 			= 'd',
+		GenMode_Random15 			= 'f',
+		GenMode_Random25 			= 'g',
+		GenMode_Random50 			= 'h',
+		GenMode_FilePrev 			= 'z',
+		GenMode_FileSame 			= 'x',
+		GenMode_FileNext 			= 'c',
 		_count_
 	};
 	KeyBinding mModelAction;
@@ -67,7 +67,7 @@ private:
 		Speed9 	= 8,
 		_count_
 	};
-	SpeedMode mSpeedMode;
+	SpeedMode mSpeedMode = SpeedMode::Speed1;
 	KeyBinding mSpeedAction;
 
 	enum class GenerationMode {
@@ -79,7 +79,7 @@ private:
 		Random50 	= 5,
 		_count_
 	};
-	GenerationMode mGenerationMode;
+	GenerationMode mGenerationMode = GenerationMode::Random50;
 	KeyBinding mGenerationAction;
 
 	// TODO change place
@@ -91,8 +91,11 @@ private:
 	int mIndexSpeed{};
 	*/
 
-	//TODO temporary event handler
+public:
+	void start();
 	void quit();
+	void mSetSpeedMode(SpeedMode speed); 
+
 };
 
 #endif //CONTROLER_H

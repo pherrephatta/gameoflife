@@ -1,11 +1,11 @@
 #include "Controller.hpp"
 #include <limits>
-#include <functional>
 
 Controller::Controller(Model &model, View &view) 
 	: mModel{model}, mView{view}, mModelAction(),
 	mGenerationAction(0, (int)GenerationMode::_count_), 
 	mSpeedAction(0, (int)SpeedMode::_count_)
+//	mKeyState{SDL_GetKeyboardState(NULL)}
 {
 	mModelAction.setAction((int)Keys::Action_Quit, [](Model& model, Controller& controller)->void { controller.quit(); });
 	mModelAction.setAction((int)Keys::Action_Border, [](Model& model, Controller& controller)->void { model.space1().BordersAlive(); });
@@ -15,20 +15,42 @@ Controller::Controller(Model &model, View &view)
 	mModelAction.setAction((int)Keys::GenMode_Random15, [](Model& model, Controller& controller)->void { model.space1().randomize(0.15); });
 	mModelAction.setAction((int)Keys::GenMode_Random25, [](Model& model, Controller& controller)->void { model.space1().randomize(0.25); });
 	mModelAction.setAction((int)Keys::GenMode_Random50, [](Model& model, Controller& controller)->void { model.space1().randomize(0.50); });
+	mModelAction.setAction((int)Keys::Speed_x1, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed1); });
+	mModelAction.setAction((int)Keys::Speed_x2, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed2); });
+	mModelAction.setAction((int)Keys::Speed_x3, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed3); });
+	mModelAction.setAction((int)Keys::Speed_x4, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed4); });
+	mModelAction.setAction((int)Keys::Speed_x5, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed5); });
+	mModelAction.setAction((int)Keys::Speed_x6, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed6); });
+	mModelAction.setAction((int)Keys::Speed_x7, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed7); });
+	mModelAction.setAction((int)Keys::Speed_x8, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed8); });
+	mModelAction.setAction((int)Keys::Speed_x9, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed9); });
 	mModelAction.setAction((int)Keys::Action_Rule, [](Model& model, Controller& controller)->void { model.nextRule(); });
+	mModelAction.setAction((int)Keys::Action_ActiveCellColor, [](Model& model, Controller& controller)->void { model.mSetLiveColor(); });
+	mModelAction.setAction((int)Keys::Action_DeadCellColor, [](Model& model, Controller& controller)->void { model.mSetDeadColor(); });
 }
 void Controller::start() {
+
+//	const Uint8 *state = SDL_GetKeyboardState(NULL);
 	do {
 		while (SDL_PollEvent(&mView.window().event())) {
+
 			if (mView.window().event().type == SDL_KEYDOWN) {
 				mModelAction.doActionFromKey(mView.window().event().key.keysym.sym, mModel, *this);
 			}
+//			else if (mView.window().event().type == SDL_KEYUP) {}
 		}
-		mModel.updateSpace();
+
+		for (int n = 0; n <= int(mSpeedMode) * 2; ++n) {
+			mModel.updateSpace();
+		}
 		mView.mRenderModel(mModel);
 	} while (!mQuit);
 }
 
 void Controller::quit() {
 	mQuit = true;
+}
+
+void Controller::mSetSpeedMode(SpeedMode speed) {
+	mSpeedMode = speed;
 }
