@@ -2,6 +2,7 @@
 #define SPACE_H
 
 #include <vector>
+#include <string>
 #include "Cell.hpp"
 
 class Space
@@ -30,11 +31,13 @@ public:
 	//////////////////////////////////////////////////////////////////////////
 	std::vector<Cell> & getSpace(); //ou pas const?
 
-	void setSpaceMid();
+	void setSpace();
 
 	void setBorders();
 
 	void BordersAlive();
+
+	void wipeSpace();
 
 	void randomize(double probability = 0.5);
 
@@ -45,6 +48,10 @@ public:
 	int Height() {
 		return mHeight;
 	}
+
+	void GenFromRLE(std::string s);
+
+
 
 
 

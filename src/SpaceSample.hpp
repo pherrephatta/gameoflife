@@ -7,19 +7,15 @@
 class SpaceSample
 {
 public:
-
-
 	//Constructeurs
 	SpaceSample() = delete;
 	SpaceSample(std::vector<Cell> const & space, std::vector<Cell>::const_iterator stateIt, int largeur);
-
 	//Destructeurs
 	~SpaceSample() = default;
 
 	//////////////////////////////////////////////////////////////////////////
 	//! \brief Accesseur de l'état
 	//////////////////////////////////////////////////////////////////////////
-
 	int GetNeighbors(std::vector<Cell>::const_iterator it);
 
 	Cell const & left(std::vector<Cell>::const_iterator it) const;
@@ -30,11 +26,7 @@ public:
 	void down();
 	void setIterateurs(std::vector<Cell>::const_iterator it);
 
-
-
 private:
-
-
 
 	std::vector<Cell> const & mSpace;
 	std::vector<Cell>::const_iterator mStateIt;
@@ -44,14 +36,5 @@ private:
 	int nbNeighbors = 0;
 
 };
-
-
-
-
-
-
-
-
-
 
 #endif // SPACESAMPLE_H

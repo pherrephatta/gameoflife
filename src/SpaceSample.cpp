@@ -6,10 +6,7 @@ SpaceSample::SpaceSample(std::vector <Cell> const & space, std::vector<Cell>::co
 { //thoses iterators will be updated in up() and down()
 	mStateIt_haut = mStateIt; 
 	mStateIt_bas = mStateIt;
-
 }
-
-
 
 int SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it) {
 	nbNeighbors = 0;

@@ -2,8 +2,6 @@
 #include "Cell.hpp"
 #include "RLE_reader.hpp"
 
-
-
 #include <algorithm>
 #include <sstream>
 #include <iostream>
@@ -13,7 +11,7 @@
 Space::Space(int length, int height)
 	: mSpace(length*height), mLenght{ length }, mHeight{ height }
 {
-	setSpaceMid();
+	setSpace();
 }
 
 std::vector<Cell>  & Space::getSpace()
@@ -21,29 +19,42 @@ std::vector<Cell>  & Space::getSpace()
 	return mSpace;
 }
 
-void Space::setSpaceMid() { //sets the space with the read RLE pattern in the middle
+void Space::setSpace() {
 
-	RLE_reader r("honeycomb_synth.rle");
-	r.analyzeFile();
-	vector<bool> RLE_universe = r.ExportUniverse();
+}
 
-	size_t cpt_pattern{ 0 }; //counter for width of rle pattern, when we get to its max value, we put the space cursor at the correct following XY.
-	size_t patternWidth{ r.rleWidth() };
-	size_t SpaceCursor{ ((size_t)(mLenght*mHeight) / 2) };
-	SpaceCursor -= (r.rleWidth() / 2);
-	SpaceCursor -= (r.rleHeight()*mLenght)/2;
- //position in our model/space	//eventually add method to return cursor at XY where the printed pattern will appear 
-
-	for (bool b : RLE_universe) {
-		mSpace[SpaceCursor].setState(b ? State::ACTIVE : State::INACTIVE);
-		++cpt_pattern;
-		++SpaceCursor;
-		if (cpt_pattern >= patternWidth) {
-			cpt_pattern=0;
-			SpaceCursor += (mLenght - r.rleWidth());
-		}
-		
+void Space::wipeSpace() {
+	for (int i{ 0 }; i < mLenght*mHeight; ++i) {
+		mSpace[i].setState(State::INACTIVE);
 	}
+}
+
+void Space::GenFromRLE(string s) {
+	RLE_reader r(s); //s must be valid RLE file, recommended to call this function only by using strings from the mValidRLEfiles vector
+
+	bool valid = r.analyzeFile();
+	size_t patternWidth{ r.rleWidth() };
+	size_t patternHeight{ r.rleHeight()};
+	if (valid && patternWidth < mLenght && patternHeight < mHeight) {
+		wipeSpace(); //if RLE extraction is successful, we wipe the curr space and print our RLE pattern on it. If not we carry on as usual
+		vector<bool> RLE_universe = r.ExportUniverse();
+
+		size_t cpt_pattern{ 0 }; //counter for width of rle pattern, when we get to its max value, we put the space cursor at the correct following XY.
+		size_t mid = mSpace.size() / 2; //middle of contiguous space
+		size_t SpaceCursor{ mid - (patternWidth / 2) - (patternHeight*mLenght / 2) }; //to start printing a pattern in the middle, we find its upper left corner in relation to the center of the space.
+	
+		for (bool b : RLE_universe) {
+			mSpace[SpaceCursor].setState(b ? State::ACTIVE : State::INACTIVE);
+			++cpt_pattern;
+			++SpaceCursor;
+			if (cpt_pattern >= patternWidth) {
+				cpt_pattern = 0;
+				SpaceCursor += (mLenght - patternWidth);
+			}
+		}
+	
+	}
+
 }
 
 void Space::setBorders()
@@ -51,18 +62,16 @@ void Space::setBorders()
 	if (!mBordersAlive) {
 
 		int t{ 0 };
-		for (int i{ 0 }; i < mLenght; ++i)
+		for (int i{ 0 }; i < mHeight; ++i)
 		{
 			for (int j{ 0 }; j < mLenght; ++j)
 			{
 				if (t < mLenght || t % mLenght == 0 || (t + 1) % mLenght == 0 || (t > int(mSpace.size() - mLenght)))
 					mSpace[t].setState(State::INACTIVE);
-
 				t++;
 
 			}
 		}
-
 	}
 }
 

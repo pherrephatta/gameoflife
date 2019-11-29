@@ -6,11 +6,11 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/54afb0f9/
 ACTIVE	src/Cell.hpp	/^	ACTIVE = 1,						\/\/!< État actif, vivant, blanc, 1, ...$/;"	e	enum:State
-Action_ActiveCellColor	src/Controller.hpp	/^		Action_ActiveCellColor 		= 'P',$/;"	e	enum:Controller::Keys
-Action_Border	src/Controller.hpp	/^		Action_Border				= 'B',$/;"	e	enum:Controller::Keys
-Action_DeadCellColor	src/Controller.hpp	/^		Action_DeadCellColor 		= 'O',$/;"	e	enum:Controller::Keys
+Action_ActiveCellColor	src/Controller.hpp	/^		Action_ActiveCellColor 		= 'p',$/;"	e	enum:Controller::Keys
+Action_Border	src/Controller.hpp	/^		Action_Border				= 'b',$/;"	e	enum:Controller::Keys
+Action_DeadCellColor	src/Controller.hpp	/^		Action_DeadCellColor 		= 'o',$/;"	e	enum:Controller::Keys
 Action_Quit	src/Controller.hpp	/^		Action_Quit					= 27,	\/\/ escape character$/;"	e	enum:Controller::Keys
-Action_Rule	src/Controller.hpp	/^		Action_Rule					= 'R',$/;"	e	enum:Controller::Keys
+Action_Rule	src/Controller.hpp	/^		Action_Rule					= 'r',$/;"	e	enum:Controller::Keys
 Action_Space	src/Controller.hpp	/^		Action_Space				= 32, 	\/\/ space character$/;"	e	enum:Controller::Keys
 BIN_PATH	makefile	/^BIN_PATH ?= .\/bin\/$/;"	m
 BordersAlive	src/Space.cpp	/^void Space::BordersAlive()$/;"	f	class:Space	typeref:typename:void
@@ -21,17 +21,18 @@ Cell	src/Cell.cpp	/^Cell::Cell(State state)$/;"	f	class:Cell
 Cell	src/Cell.hpp	/^class Cell$/;"	c
 Controller	src/Controller.cpp	/^Controller::Controller(Model &model, View &view) $/;"	f	class:Controller
 Controller	src/Controller.hpp	/^class Controller {$/;"	c
+ExportUniverse	src/RLE_reader.hpp	/^	const vector<bool> ExportUniverse() { return mExportUniverse; }$/;"	f	class:RLE_reader	typeref:typename:const vector<bool>
 ExtractedUniverse	src/RLEbuffer.hpp	/^	vector<bool> ExtractedUniverse() { return mExtractedUniverse; } \/\/get universe extracted from/;"	f	class:RLEbuffer	typeref:typename:vector<bool>
 Game Of Life	README.md	/^# Game Of Life$/;"	c
-GenMode_FileNext	src/Controller.hpp	/^		GenMode_FileNext 			= 'C',$/;"	e	enum:Controller::Keys
-GenMode_FilePrev	src/Controller.hpp	/^		GenMode_FilePrev 			= 'Z',$/;"	e	enum:Controller::Keys
-GenMode_FileSame	src/Controller.hpp	/^		GenMode_FileSame 			= 'X',$/;"	e	enum:Controller::Keys
-GenMode_Random1	src/Controller.hpp	/^		GenMode_Random1 			= 'A',$/;"	e	enum:Controller::Keys
-GenMode_Random10	src/Controller.hpp	/^		GenMode_Random10 			= 'D',$/;"	e	enum:Controller::Keys
-GenMode_Random15	src/Controller.hpp	/^		GenMode_Random15 			= 'F',$/;"	e	enum:Controller::Keys
-GenMode_Random25	src/Controller.hpp	/^		GenMode_Random25 			= 'G',$/;"	e	enum:Controller::Keys
-GenMode_Random5	src/Controller.hpp	/^		GenMode_Random5 			= 'S',$/;"	e	enum:Controller::Keys
-GenMode_Random50	src/Controller.hpp	/^		GenMode_Random50 			= 'H',$/;"	e	enum:Controller::Keys
+GenMode_FileNext	src/Controller.hpp	/^		GenMode_FileNext 			= 'c',$/;"	e	enum:Controller::Keys
+GenMode_FilePrev	src/Controller.hpp	/^		GenMode_FilePrev 			= 'z',$/;"	e	enum:Controller::Keys
+GenMode_FileSame	src/Controller.hpp	/^		GenMode_FileSame 			= 'x',$/;"	e	enum:Controller::Keys
+GenMode_Random1	src/Controller.hpp	/^		GenMode_Random1 			= 'a',$/;"	e	enum:Controller::Keys
+GenMode_Random10	src/Controller.hpp	/^		GenMode_Random10 			= 'd',$/;"	e	enum:Controller::Keys
+GenMode_Random15	src/Controller.hpp	/^		GenMode_Random15 			= 'f',$/;"	e	enum:Controller::Keys
+GenMode_Random25	src/Controller.hpp	/^		GenMode_Random25 			= 'g',$/;"	e	enum:Controller::Keys
+GenMode_Random5	src/Controller.hpp	/^		GenMode_Random5 			= 's',$/;"	e	enum:Controller::Keys
+GenMode_Random50	src/Controller.hpp	/^		GenMode_Random50 			= 'h',$/;"	e	enum:Controller::Keys
 GenerationMode	src/Controller.hpp	/^	enum class GenerationMode {$/;"	g	class:Controller
 GetNeighbors	src/SpaceSample.cpp	/^int SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it) {$/;"	f	class:SpaceSample	typeref:typename:int
 Height	src/Space.hpp	/^	int Height() {$/;"	f	class:Space	typeref:typename:int
@@ -106,7 +107,18 @@ __anon34a67e110502	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::GenMo
 __anon34a67e110602	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::GenMode_Random15, [](Model& model, Controller& controller)->v/;"	f	function:Controller::Controller	typeref:typename:void	file:
 __anon34a67e110702	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::GenMode_Random25, [](Model& model, Controller& controller)->v/;"	f	function:Controller::Controller	typeref:typename:void	file:
 __anon34a67e110802	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::GenMode_Random50, [](Model& model, Controller& controller)->v/;"	f	function:Controller::Controller	typeref:typename:void	file:
-__anon34a67e110902	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Action_Rule, [](Model& model, Controller& controller)->void {/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e110902	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Speed_x1, [](Model& model, Controller& controller)->void { co/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e110a02	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Speed_x2, [](Model& model, Controller& controller)->void { co/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e110b02	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Speed_x3, [](Model& model, Controller& controller)->void { co/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e110c02	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Speed_x4, [](Model& model, Controller& controller)->void { co/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e110d02	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Speed_x5, [](Model& model, Controller& controller)->void { co/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e110e02	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Speed_x6, [](Model& model, Controller& controller)->void { co/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e110f02	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Speed_x7, [](Model& model, Controller& controller)->void { co/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e111002	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Speed_x8, [](Model& model, Controller& controller)->void { co/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e111102	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Speed_x9, [](Model& model, Controller& controller)->void { co/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e111202	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Action_Rule, [](Model& model, Controller& controller)->void {/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e111302	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Action_ActiveCellColor, [](Model& model, Controller& controll/;"	f	function:Controller::Controller	typeref:typename:void	file:
+__anon34a67e111402	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Action_DeadCellColor, [](Model& model, Controller& controller/;"	f	function:Controller::Controller	typeref:typename:void	file:
 __anon6bfb05f90102	src/Space.cpp	/^	std::for_each(mSpace.begin(), mSpace.end(), [probability](Cell & cell)->void { cell.randomize(p/;"	f	function:Space::randomize	typeref:typename:void	file:
 _count_	src/Controller.hpp	/^		_count_$/;"	e	enum:Controller::GenerationMode
 _count_	src/Controller.hpp	/^		_count_$/;"	e	enum:Controller::Keys
@@ -117,6 +129,7 @@ analyzeDataString	src/RLEbuffer.cpp	/^bool RLEbuffer::analyzeDataString() {$/;"	
 analyzeFile	src/RLE_reader.cpp	/^bool RLE_reader::analyzeFile() {$/;"	f	class:RLE_reader	typeref:typename:bool
 center	src/SpaceSample.cpp	/^Cell const & SpaceSample::center(std::vector<Cell>::const_iterator it) const {$/;"	f	class:SpaceSample	typeref:typename:Cell const &
 clean	makefile	/^clean :$/;"	t
+deadCellColor	src/Model.cpp	/^uint8_t Model::deadCellColor() { return mDeadCellColor;}$/;"	f	class:Model	typeref:typename:uint8_t
 doActionFromKey	src/KeyBinding.cpp	/^void KeyBinding::doActionFromKey(key_t key, Model& model, Controller& controller) const$/;"	f	class:KeyBinding	typeref:typename:void
 doDefaultAction	src/KeyBinding.cpp	/^void KeyBinding::doDefaultAction(Model& model, Controller& controller) const {$/;"	f	class:KeyBinding	typeref:typename:void
 done	src/RLEbuffer.hpp	/^	bool done(){ return (verifyCoherence() && mDone); }$/;"	f	class:RLEbuffer	typeref:typename:bool
@@ -128,6 +141,7 @@ getSpace	src/Space.cpp	/^std::vector<Cell>  & Space::getSpace()$/;"	f	class:Spac
 indexRule	src/Model.hpp	/^	unsigned int indexRule() { return mIndexRule; };$/;"	f	class:Model	typeref:typename:unsigned int
 key_t	src/KeyBinding.hpp	/^	using key_t = int;$/;"	t	class:KeyBinding	typeref:typename:int
 left	src/SpaceSample.cpp	/^Cell const & SpaceSample::left(std::vector<Cell>::const_iterator it) const {$/;"	f	class:SpaceSample	typeref:typename:Cell const &
+liveCellColor	src/Model.cpp	/^uint8_t Model::liveCellColor() { return mLiveCellColor;}$/;"	f	class:Model	typeref:typename:uint8_t
 logHeight	src/Window.cpp	/^uint16_t Window::logHeight() const {return mLogHeight;}$/;"	f	class:Window	typeref:typename:uint16_t
 logWidth	src/Window.cpp	/^uint16_t Window::logWidth() const {return mLogWidth;}$/;"	f	class:Window	typeref:typename:uint16_t
 mBinding	src/KeyBinding.hpp	/^	std::vector<action_t> mBinding;$/;"	m	class:KeyBinding	typeref:typename:std::vector<action_t>
@@ -135,23 +149,29 @@ mBordersAlive	src/Space.hpp	/^	bool mBordersAlive = true;$/;"	m	class:Space	type
 mBufferSize	src/RLEbuffer.hpp	/^	size_t mBufferSize;$/;"	m	class:RLEbuffer	typeref:typename:size_t
 mClear	src/View.cpp	/^void View::mClear() {$/;"	f	class:View	typeref:typename:void
 mCurrLine	src/RLEbuffer.hpp	/^	const string mCurrLine;$/;"	m	class:RLEbuffer	typeref:typename:const string
+mDeadCellColor	src/Model.hpp	/^	uint8_t mDeadCellColor{};$/;"	m	class:Model	typeref:typename:uint8_t
 mDefaultAction	src/KeyBinding.hpp	/^	action_t mDefaultAction = nullptr;$/;"	m	class:KeyBinding	typeref:typename:action_t
 mDone	src/RLEbuffer.hpp	/^	bool mDone{ false }; \/\/ '!' char encountered$/;"	m	class:RLEbuffer	typeref:typename:bool
 mEvent	src/Window.hpp	/^	SDL_Event mEvent;$/;"	m	class:Window	typeref:typename:SDL_Event
 mExportUniverse	src/RLE_reader.hpp	/^	vector<bool> mExportUniverse{};\/\/contiguous universe to be eventually exported, if valid$/;"	m	class:RLE_reader	typeref:typename:vector<bool>
 mExtractedUniverse	src/RLEbuffer.hpp	/^	vector<bool> mExtractedUniverse;\/\/to be sent to RLE reader if valid$/;"	m	class:RLEbuffer	typeref:typename:vector<bool>
 mGenerationAction	src/Controller.hpp	/^	KeyBinding mGenerationAction;$/;"	m	class:Controller	typeref:typename:KeyBinding
-mGenerationMode	src/Controller.hpp	/^	GenerationMode mGenerationMode;$/;"	m	class:Controller	typeref:typename:GenerationMode
+mGenerationMode	src/Controller.hpp	/^	GenerationMode mGenerationMode = GenerationMode::Random50;$/;"	m	class:Controller	typeref:typename:GenerationMode
 mHeight	src/Space.hpp	/^	int mHeight;$/;"	m	class:Space	typeref:typename:int
 mIndexRule	src/Model.hpp	/^	unsigned int mIndexRule{ 0 };$/;"	m	class:Model	typeref:typename:unsigned int
+mKeyState	src/Controller.hpp	/^	const Uint8 *mKeyState; 				\/\/ SDL keystate array (for held vs pressed keys)$/;"	m	class:Controller	typeref:typename:const Uint8 *
 mLargeur	src/SpaceSample.hpp	/^	int mLargeur;$/;"	m	class:SpaceSample	typeref:typename:int
 mLenght	src/Space.hpp	/^	int mLenght;$/;"	m	class:Space	typeref:typename:int
+mLiveCellColor	src/Model.hpp	/^	uint8_t mLiveCellColor{};$/;"	m	class:Model	typeref:typename:uint8_t
 mLogHeight	src/Window.hpp	/^	uint16_t mLogHeight;								\/\/ Logical Height (wdHeight \/ pxHeight)$/;"	m	class:Window	typeref:typename:uint16_t
 mLogWidth	src/Window.hpp	/^	uint16_t mLogWidth;									\/\/ Logical Width (wdWidth \/ pxWidth)$/;"	m	class:Window	typeref:typename:uint16_t
 mMaxSize	src/RLEbuffer.hpp	/^	const size_t mMaxSize; \/\/max X size\/width$/;"	m	class:RLEbuffer	typeref:typename:const size_t
 mModel	src/Controller.hpp	/^	Model &mModel;$/;"	m	class:Controller	typeref:typename:Model &
 mModelAction	src/Controller.hpp	/^	KeyBinding mModelAction;$/;"	m	class:Controller	typeref:typename:KeyBinding
+mNbColors	src/View.hpp	/^	const static size_t mNbColors = 8;$/;"	m	class:View	typeref:typename:const size_t
 mOffsetKey	src/KeyBinding.hpp	/^	key_t mOffsetKey;$/;"	m	class:KeyBinding	typeref:typename:key_t
+mPaletteDark	src/View.hpp	/^	constexpr static SDL_Color mPaletteDark[mNbColors] {$/;"	m	class:View	typeref:typename:SDL_Color[]
+mPaletteLight	src/View.hpp	/^	constexpr static SDL_Color mPaletteLight[mNbColors] {$/;"	m	class:View	typeref:typename:SDL_Color[]
 mPxHeight	src/Window.hpp	/^	uint16_t mPxHeight = 3;								\/\/ Pixel logical height$/;"	m	class:Window	typeref:typename:uint16_t
 mPxWidth	src/Window.hpp	/^	uint16_t mPxWidth = 3;								\/\/ Pixel logical width	$/;"	m	class:Window	typeref:typename:uint16_t
 mQuit	src/Controller.hpp	/^	bool mQuit = false;$/;"	m	class:Controller	typeref:typename:bool
@@ -167,16 +187,20 @@ mRuleB	src/Rule.hpp	/^	unsigned char mRuleB; \/\/rules are expressed as 8 bits v
 mRuleS	src/RLE_reader.hpp	/^	string mRuleS{}; \/\/strings pour les regles for now,$/;"	m	class:RLE_reader	typeref:typename:string
 mRuleS	src/Rule.hpp	/^	unsigned char mRuleS; \/\/$/;"	m	class:Rule	typeref:typename:unsigned char
 mRules	src/Model.hpp	/^	std::vector<Rule> mRules{ Rule("3", "23"), Rule("36", "23") , Rule("3678", "34678"), Rule("1", /;"	m	class:Model	typeref:typename:std::vector<Rule>
+mSetDeadColor	src/Model.cpp	/^void Model::mSetDeadColor() {mDeadCellColor = mDeadCellColor < View::mNbColors  ?  mDeadCellColo/;"	f	class:Model	typeref:typename:void
+mSetLiveColor	src/Model.cpp	/^void Model::mSetLiveColor() {mLiveCellColor = mLiveCellColor < View::mNbColors  ?  mLiveCellColo/;"	f	class:Model	typeref:typename:void
+mSetSpeedMode	src/Controller.cpp	/^void Controller::mSetSpeedMode(SpeedMode speed) {$/;"	f	class:Controller	typeref:typename:void
 mSpace	src/Space.hpp	/^	std::vector<Cell> mSpace;$/;"	m	class:Space	typeref:typename:std::vector<Cell>
 mSpace	src/SpaceSample.hpp	/^	std::vector<Cell> const & mSpace;$/;"	m	class:SpaceSample	typeref:typename:std::vector<Cell> const &
 mSpace1	src/Model.hpp	/^	Space* mSpace1 = nullptr;$/;"	m	class:Model	typeref:typename:Space *
 mSpace2	src/Model.hpp	/^	Space* mSpace2 = nullptr;$/;"	m	class:Model	typeref:typename:Space *
 mSpeedAction	src/Controller.hpp	/^	KeyBinding mSpeedAction;$/;"	m	class:Controller	typeref:typename:KeyBinding
-mSpeedMode	src/Controller.hpp	/^	SpeedMode mSpeedMode;$/;"	m	class:Controller	typeref:typename:SpeedMode
+mSpeedMode	src/Controller.hpp	/^	SpeedMode mSpeedMode = SpeedMode::Speed1;$/;"	m	class:Controller	typeref:typename:SpeedMode
 mState	src/Cell.hpp	/^	State mState;$/;"	m	class:Cell	typeref:typename:State
 mStateIt	src/SpaceSample.hpp	/^	std::vector<Cell>::const_iterator mStateIt;$/;"	m	class:SpaceSample	typeref:typename:std::vector<Cell>::const_iterator
 mStateIt_bas	src/SpaceSample.hpp	/^	std::vector<Cell>::const_iterator mStateIt_bas;$/;"	m	class:SpaceSample	typeref:typename:std::vector<Cell>::const_iterator
 mStateIt_haut	src/SpaceSample.hpp	/^	std::vector<Cell>::const_iterator mStateIt_haut;$/;"	m	class:SpaceSample	typeref:typename:std::vector<Cell>::const_iterator
+mUpdateTime	src/Model.hpp	/^	int mUpdateTime{1};$/;"	m	class:Model	typeref:typename:int
 mView	src/Controller.hpp	/^	View &mView;$/;"	m	class:Controller	typeref:typename:View &
 mWdHandle	src/Window.hpp	/^	SDL_Window *mWdHandle = nullptr;$/;"	m	class:Window	typeref:typename:SDL_Window *
 mWdHeight	src/Window.hpp	/^	uint16_t mWdHeight;									\/\/ Window height (pixels$/;"	m	class:Window	typeref:typename:uint16_t
@@ -199,6 +223,8 @@ randomize	src/Space.cpp	/^void Space::randomize(double probability) {$/;"	f	clas
 rebuild	makefile	/^rebuild :$/;"	t
 regle1	src/Model.hpp	/^	Rule regle1{ Rule("123", "456") };$/;"	m	class:Model	typeref:typename:Rule
 right	src/SpaceSample.cpp	/^Cell const & SpaceSample::right(std::vector<Cell>::const_iterator it) const {$/;"	f	class:SpaceSample	typeref:typename:Cell const &
+rleHeight	src/RLE_reader.hpp	/^	const size_t rleHeight() { return mYHeight; }$/;"	f	class:RLE_reader	typeref:typename:const size_t
+rleWidth	src/RLE_reader.hpp	/^	const size_t rleWidth() { return mXWidth; }$/;"	f	class:RLE_reader	typeref:typename:const size_t
 ruleB	src/RLE_reader.cpp	/^unsigned char RLE_reader::ruleB() {$/;"	f	class:RLE_reader	typeref:typename:unsigned char
 ruleB	src/Rule.hpp	/^	unsigned char ruleB() { return mRuleB; }$/;"	f	class:Rule	typeref:typename:unsigned char
 ruleS	src/RLE_reader.cpp	/^unsigned char RLE_reader::ruleS() {$/;"	f	class:RLE_reader	typeref:typename:unsigned char
