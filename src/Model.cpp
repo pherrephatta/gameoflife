@@ -6,6 +6,11 @@ Model::Model(int width, int height) {
 	mSpace2 = new Space(*mSpace1);
 }
 
+Model::~Model() {
+	delete mSpace1;
+	delete mSpace2;
+}
+
 Space& Model::space1() { return *mSpace1; }
 Space& Model::space2() { return *mSpace2; }
 

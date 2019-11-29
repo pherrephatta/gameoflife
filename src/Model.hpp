@@ -12,7 +12,7 @@ class Model {
 public:
 	Model() = delete;
 	Model(int width, int height);
-	~Model() = default;
+	~Model();
 
 	//mettre a jour l'espace 
 

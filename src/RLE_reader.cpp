@@ -8,7 +8,7 @@ RLE_reader::RLE_reader(string s)
 }
 
 unsigned char RLE_reader::ruleB() {
-	unsigned char ruleB(NULL);
+	unsigned char ruleB{};
 	for (char c : mRuleB) {
 		size_t bitToSet = c-'0';
 		ruleB ^= (1 << (bitToSet - 1));
@@ -17,7 +17,7 @@ unsigned char RLE_reader::ruleB() {
 }
 
 unsigned char RLE_reader::ruleS() {
-	unsigned char ruleS(NULL);
+	unsigned char ruleS{};
 	for (char c : mRuleS) {
 		size_t bitToSet = c - '0';
 		ruleS ^= (1<<(bitToSet-1));

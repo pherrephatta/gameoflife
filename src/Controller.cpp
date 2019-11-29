@@ -11,7 +11,7 @@ Controller::Controller(Model &model, View &view)
 
 
 {
-	mValidRLEfiles = getRLEfiles("./");
+	mValidRLEfiles = getRLEfiles("./rle/");
 	mModelAction.setAction((int)Keys::Action_Quit, [](Model& model, Controller& controller)->void { controller.quit(); });
 	mModelAction.setAction((int)Keys::Action_Border, [](Model& model, Controller& controller)->void { model.space1().BordersAlive(); });
 	mModelAction.setAction((int)Keys::GenMode_Random1, [](Model& model, Controller& controller)->void { model.space1().randomize(0.01); });
@@ -43,20 +43,17 @@ string Controller::getLastRLE() { return mValidRLEfiles.at(mRLEindex <= 0 ? mVal
 
 
 void Controller::start() {
-//	const Uint8 *state = SDL_GetKeyboardState(NULL);
 	do {
 		while (SDL_PollEvent(&mView.window().event())) {
 
 			if (mView.window().event().type == SDL_KEYDOWN) {
 				mModelAction.doActionFromKey(mView.window().event().key.keysym.sym, mModel, *this);
 			}
-//			else if (mView.window().event().type == SDL_KEYUP) {}
 		}
-
+		mView.mRenderModel(mModel);
 		for (int n = 0; n <= int(mSpeedMode) * 2; ++n) {
 			mModel.updateSpace();
 		}
-		mView.mRenderModel(mModel);
 	} while (!mQuit);
 }
 
