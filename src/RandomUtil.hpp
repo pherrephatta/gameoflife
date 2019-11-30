@@ -1,7 +1,6 @@
 #ifndef RANDOM_UTIL_H
 #define RANDOM_UTIL_H
 
-
 #include <random>
 
 //////////////////////////////////////////////////////////////////////////
@@ -36,10 +35,12 @@ public:
 	//! \return retourne vrai si l'évènement a lieu, retourne faux sinon
 	//////////////////////////////////////////////////////////////////////////
 	static bool generateEvent(double probability = 0.5);
+	static uint8_t generateChar();
 
 private:
 	static std::random_device randomDevice;
 	static std::mt19937 randomGenerator;
+	static std::uniform_int_distribution<uint8_t> randomChar;
 };
 
 

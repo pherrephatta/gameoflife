@@ -4,6 +4,7 @@
 Model::Model(int width, int height) {
 	mSpace1 = new Space(width, height);
 	mSpace2 = new Space(*mSpace1);
+	mDeadCellColor = View::mNbColors / 2;
 }
 
 Model::~Model() {

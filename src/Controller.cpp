@@ -7,11 +7,8 @@ Controller::Controller(Model &model, View &view)
 	mGenerationAction(0, (int)GenerationMode::_count_), 
 	mSpeedAction(0, (int)SpeedMode::_count_)
 
-//	mKeyState{SDL_GetKeyboardState(NULL)}
-
-
 {
-	mValidRLEfiles = getRLEfiles("./rle/");
+	mValidRLEfiles = getRLEfiles("../rle/");
 	mModelAction.setAction((int)Keys::Action_Quit, [](Model& model, Controller& controller)->void { controller.quit(); });
 	mModelAction.setAction((int)Keys::Action_Border, [](Model& model, Controller& controller)->void { model.space1().BordersAlive(); });
 	mModelAction.setAction((int)Keys::GenMode_Random1, [](Model& model, Controller& controller)->void { model.space1().randomize(0.01); });

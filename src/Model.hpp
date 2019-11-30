@@ -34,10 +34,9 @@ private:
 	Rule regle1{ Rule("123", "456") };
 	std::vector<Rule> mRules{ Rule("3", "23"), Rule("36", "23") , Rule("3678", "34678"), Rule("1", "7") };
 
-	int mUpdateTime{1};
 	uint8_t mDeadCellColor{};
 	uint8_t mLiveCellColor{};
-	unsigned int mIndexRule{ 0 };
+	unsigned int mIndexRule{};
 };
 
 #endif	//MODEL_H
