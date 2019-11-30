@@ -60,7 +60,6 @@ void Space::GenFromRLE(string s) {
 void Space::setBorders()
 {
 	if (!mBordersAlive) {
-
 		int t{ 0 };
 		for (int i{ 0 }; i < mHeight; ++i)
 		{
@@ -70,6 +69,25 @@ void Space::setBorders()
 					mSpace[t].setState(State::INACTIVE);
 				t++;
 
+			}
+		}
+	}
+	else {
+		for (int y{}; y < mHeight; ++y) {
+			if (y == 0) {
+				for (int x{}; x < mLenght; ++x) {
+					mSpace[x].setState(mSpace[mLenght * y + x].state());
+				}
+			}
+			else if (y == mHeight - 1) {
+				for (int x{}; x < mLenght; ++x) {
+					mSpace[x].setState(mSpace[x].state());
+				}
+			}
+			else {
+				Cell temp(mSpace[y * mLenght]);
+				mSpace[y * mLenght].setState(mSpace[y * (mLenght + 1) - 1].state());
+				mSpace[y * (mLenght + 1) - 1].setState(temp.state());
 			}
 		}
 	}

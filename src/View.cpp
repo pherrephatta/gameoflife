@@ -30,18 +30,23 @@ void View::mRenderChecker() {
 }
 
 void View::mRenderModel(Model& model) { 
-	assert(model.space1().Lenght() * model.space1().Height() == mWindow.logWidth() * mWindow.logHeight());
+	assert(model.space1().Lenght() * model.space1().Height() == (mWindow.logWidth() + 1) * (mWindow.logHeight() + 1));
 	int pos{};
 	SDL_Color color{};
-	mClear();
+	SDL_SetRenderTarget(mWindow.wdRenderer(), mWindow.wdTexture());
+	SDL_RenderClear(mWindow.wdRenderer());
+	
 	for (size_t y{0}; y < mWindow.logHeight(); ++y) {
 		for (size_t x{0}; x < mWindow.logWidth(); ++x) {
-			pos = (y * model.space1().Lenght()) + x;
+			pos = ((y + 1) * model.space1().Lenght()) + (x + 1);
 			color = model.space1().getSpace()[pos].state() == State::ACTIVE ? mPalette[model.liveCellColor()] : mPalette[model.deadCellColor()];
 			SDL_SetRenderDrawColor(mWindow.wdRenderer(), color.r, color.g, color.b, color.a);
 			SDL_RenderDrawPoint(mWindow.wdRenderer(), x, y);
 		}
 	}
+
+	SDL_SetRenderTarget(mWindow.wdRenderer(), NULL);
+	SDL_RenderCopy(mWindow.wdRenderer(), mWindow.wdTexture(), NULL, NULL);
 	SDL_RenderPresent(mWindow.wdRenderer());
 }
 
@@ -50,6 +55,6 @@ void View::mSetColors(){
 		mPalette[i].r = RandomUtil::generateChar();
 		mPalette[i].g = RandomUtil::generateChar();
 		mPalette[i].b = RandomUtil::generateChar();
-		mPalette[i].a = 255; 
+		mPalette[i].a = 255;
 	}
 }

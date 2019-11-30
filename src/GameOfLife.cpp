@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	View view(wdWidth, wdHeight);
-	Model model(view.window().logWidth(), view.window().logHeight());
+	Model model(view.window().logWidth() + 1, view.window().logHeight() + 1);
 	Controller controller(model, view);
 	controller.start();
 

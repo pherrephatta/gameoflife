@@ -26,7 +26,9 @@ void Model::updateSpace() {
 	
 	std::vector<Cell>::iterator it2 = (*mSpace2).getSpace().begin();
 	for (; it != (*mSpace1).getSpace().end(); it++) {
-		(*it2).setState(((State)(mRules[mIndexRule].outcome(((bool)(*it).state()), facade.GetNeighbors(it)))));
+		if ((*mSpace1).Lenght() < (it - mSpace1->getSpace().begin()) < (*mSpace1).Lenght() * (*mSpace1).Height()) {
+			(*it2).setState(((State)(mRules[mIndexRule].outcome(((bool)(*it).state()), facade.GetNeighbors(it)))));
+		}
 		++it2;
 	}
 
