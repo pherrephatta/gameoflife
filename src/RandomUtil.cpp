@@ -2,7 +2,7 @@
 
 std::random_device RandomUtil::randomDevice;
 std::mt19937 RandomUtil::randomGenerator(randomDevice());
-std::uniform_int_distribution<uint8_t> RandomUtil::randomChar(0,255);
+
 
 bool RandomUtil::generateEvent(double probability)
 {
@@ -11,5 +11,6 @@ bool RandomUtil::generateEvent(double probability)
 }
 
 uint8_t RandomUtil::generateChar() {
+	std::uniform_int_distribution<int> randomChar(0, 255);
 	return randomChar(randomGenerator);
 }

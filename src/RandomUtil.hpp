@@ -40,7 +40,6 @@ public:
 private:
 	static std::random_device randomDevice;
 	static std::mt19937 randomGenerator;
-	static std::uniform_int_distribution<uint8_t> randomChar;
 };
 
 

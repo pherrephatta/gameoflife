@@ -8,7 +8,11 @@ Controller::Controller(Model &model, View &view)
 	mSpeedAction(0, (int)SpeedMode::_count_)
 
 {
+#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
+	mValidRLEfiles = getRLEfiles("./rle/");
+#else
 	mValidRLEfiles = getRLEfiles("../rle/");
+#endif
 	mModelAction.setAction((int)Keys::Action_Quit, [](Model& model, Controller& controller)->void { controller.quit(); });
 	mModelAction.setAction((int)Keys::Action_Border, [](Model& model, Controller& controller)->void { model.space1().BordersAlive(); });
 	mModelAction.setAction((int)Keys::GenMode_Random1, [](Model& model, Controller& controller)->void { model.space1().randomize(0.01); });
@@ -32,7 +36,6 @@ Controller::Controller(Model &model, View &view)
 	mModelAction.setAction((int)Keys::GenMode_FileNext, [](Model& model, Controller& controller)->void {model.giveRLE(controller.getNextRLE());});
 	mModelAction.setAction((int)Keys::GenMode_FilePrev, [](Model& model, Controller& controller)->void {model.giveRLE(controller.getLastRLE()); });
 	mModelAction.setAction((int)Keys::GenMode_FileSame, [](Model& model, Controller& controller)->void {model.giveRLE(controller.currRLE()); });
-
 }
 string Controller::currRLE() { return mValidRLEfiles[mRLEindex]; }
 string Controller::getNextRLE() { return mValidRLEfiles.at(mRLEindex > mValidRLEfiles.size() ? 0 : ++mRLEindex); }

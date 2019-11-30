@@ -57,7 +57,6 @@ void SpaceSample::setIterateurs(std::vector<Cell>::const_iterator it) { //update
 	mStateIt_haut = it;
 }
 
-
 Cell const & SpaceSample::right(std::vector<Cell>::const_iterator it) const {
 	if (it == mSpace.end() - 1) { // if last cell
 		return  *(it - mLargeur + 1);

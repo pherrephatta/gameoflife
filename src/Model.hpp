@@ -14,8 +14,7 @@ public:
 	Model(int width, int height);
 	~Model();
 
-	//mettre a jour l'espace 
-
+	//mettre a jour l'espace
 	void updateSpace();
 	Space& space1();
 	Space& space2();
