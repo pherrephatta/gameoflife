@@ -34,8 +34,8 @@ void View::mRenderModel(Model& model) {
 	SDL_SetRenderTarget(mWindow.wdRenderer(), mWindow.wdTexture());
 	SDL_RenderClear(mWindow.wdRenderer());
 	
-	for (size_t y{0}; y < mWindow.logHeight(); ++y) {
-		for (size_t x{0}; x < mWindow.logWidth(); ++x) {
+	for (int y{0}; y < mWindow.logHeight(); ++y) {
+		for (int x{0}; x < mWindow.logWidth(); ++x) {
 			color = model.space1().getSpace()[y][x].state() == State::ACTIVE ? mPalette[model.liveCellColor()] : mPalette[model.deadCellColor()];
 			SDL_SetRenderDrawColor(mWindow.wdRenderer(), color.r, color.g, color.b, color.a);
 			SDL_RenderDrawPoint(mWindow.wdRenderer(), x, y);
