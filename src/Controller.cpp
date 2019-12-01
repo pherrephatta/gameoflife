@@ -56,8 +56,6 @@ void Controller::start() {
 }
 
 void Controller::quit() {
-	SDL_DestroyTexture(mView.window().wdTexture());
-	SDL_DstroyRenderer(mView.window().wdRenderer());
 	mQuit = true;
 }
 

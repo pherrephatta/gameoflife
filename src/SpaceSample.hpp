@@ -33,7 +33,6 @@ private:
 	std::vector<Cell>::const_iterator mStateIt_center;
 	std::vector<Cell>::const_iterator mStateIt_haut;
 	std::vector<Cell>::const_iterator mStateIt_bas;
-	int mLargeur;
 	int nbNeighbors = 0;
 
 };

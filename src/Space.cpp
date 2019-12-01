@@ -78,9 +78,9 @@ void Space::BordersAlive()
 }
 
 void Space::randomize(double probability) {
-
-	std::for_each(mSpace.begin(), mSpace.end(), [probability](Cell & cell)->void { cell.randomize(probability); });
-	//std::cout << "randomize with a probability of " << probability;
-
+	for (int y{}; y < mHeight; ++y) {
+		for (int x{}; x < mLength; ++x) {
+			mSpace[y][x].randomize(probability);
+		}
+	}
 }
-

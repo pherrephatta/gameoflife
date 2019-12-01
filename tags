@@ -123,7 +123,6 @@ __anon34a67e111402	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::Actio
 __anon34a67e111502	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::GenMode_FileNext, [](Model& model, Controller& controller)->v/;"	f	function:Controller::Controller	typeref:typename:void	file:
 __anon34a67e111602	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::GenMode_FilePrev, [](Model& model, Controller& controller)->v/;"	f	function:Controller::Controller	typeref:typename:void	file:
 __anon34a67e111702	src/Controller.cpp	/^	mModelAction.setAction((int)Keys::GenMode_FileSame, [](Model& model, Controller& controller)->v/;"	f	function:Controller::Controller	typeref:typename:void	file:
-__anon6bfb05f90102	src/Space.cpp	/^	std::for_each(mSpace.begin(), mSpace.end(), [probability](Cell & cell)->void { cell.randomize(p/;"	f	function:Space::randomize	typeref:typename:void	file:
 _count_	src/Controller.hpp	/^		_count_$/;"	e	enum:Controller::GenerationMode
 _count_	src/Controller.hpp	/^		_count_$/;"	e	enum:Controller::Keys
 _count_	src/Controller.hpp	/^		_count_$/;"	e	enum:Controller::SpeedMode
@@ -171,7 +170,6 @@ mGenerationAction	src/Controller.hpp	/^	KeyBinding mGenerationAction;$/;"	m	clas
 mGenerationMode	src/Controller.hpp	/^	GenerationMode mGenerationMode{GenerationMode::Random50};$/;"	m	class:Controller	typeref:typename:GenerationMode
 mHeight	src/Space.hpp	/^	int mHeight;$/;"	m	class:Space	typeref:typename:int
 mIndexRule	src/Model.hpp	/^	unsigned int mIndexRule{};$/;"	m	class:Model	typeref:typename:unsigned int
-mLargeur	src/SpaceSample.hpp	/^	int mLargeur;$/;"	m	class:SpaceSample	typeref:typename:int
 mLength	src/Space.hpp	/^	int mLength;$/;"	m	class:Space	typeref:typename:int
 mLiveCellColor	src/Model.hpp	/^	uint8_t mLiveCellColor{};$/;"	m	class:Model	typeref:typename:uint8_t
 mLogHeight	src/Window.hpp	/^	uint16_t mLogHeight;								\/\/ Logical Height (wdHeight \/ pxHeight)$/;"	m	class:Window	typeref:typename:uint16_t
