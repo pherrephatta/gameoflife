@@ -15,7 +15,6 @@ public:
 	Window& window();							// return window
 
 	void mClear();								// Clear the screen
-	void mRenderChecker();						// Draw pattern, for testing purposes
 	void mRenderModel(Model& model); 			// Render the model
 	const static size_t mNbColors = 255;
 

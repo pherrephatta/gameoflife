@@ -12,14 +12,14 @@ std::vector<std::vector<Cell>> &Space::getSpace() {	return mSpace; }
 Space::Space(size_t length, size_t height)
 	: mSpace(height), mLength{ length }, mHeight{ height }
 {
-	for (int y{}; y < mHeight; y++) {
+	for (size_t y{}; y < mHeight; y++) {
 		mSpace[y].resize(mLength);
 	}
 }
 
 void Space::wipeSpace() {
-	for (int y{}; y < mHeight; ++y) {
-		for (int x{}; x < mLength; ++x) {
+	for (size_t y{}; y < mHeight; ++y) {
+		for (size_t x{}; x < mLength; ++x) {
 			mSpace[y][x].setState(State::INACTIVE);
 		}
 	}
@@ -59,9 +59,9 @@ void Space::GenFromRLE(string s) {
 void Space::setBorders()
 {
 	if (!mBordersAlive) {
-		for (int y{}; y < mHeight; ++y) {
+		for (size_t y{}; y < mHeight; ++y) {
 			if (y == 0 || y == mHeight - 1) {
-				for (int x{}; x < mLength; ++x) {
+				for (size_t x{}; x < mLength; ++x) {
 					mSpace[y][x].setState(State::INACTIVE);
 				}
 			} else {
@@ -79,8 +79,8 @@ void Space::BordersAlive()
 }
 
 void Space::randomize(double probability) {
-	for (int y{}; y < mHeight; ++y) {
-		for (int x{}; x < mLength; ++x) {
+	for (size_t y{}; y < mHeight; ++y) {
+		for (size_t x{}; x < mLength; ++x) {
 			mSpace[y][x].randomize(probability);
 		}
 	}
