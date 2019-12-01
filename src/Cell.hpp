@@ -11,8 +11,6 @@ enum class State : bool {
 
 class Cell
 {
-public:
-
 
 private:
 

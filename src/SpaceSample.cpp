@@ -1,14 +1,21 @@
 #include "SpaceSample.hpp"
 #include <iostream>
 
-SpaceSample::SpaceSample(std::vector <Cell> const & space, std::vector<Cell>::const_iterator stateIt, int largeur)
-	: mSpace{ space }, mStateIt{ stateIt }, mLargeur{ largeur }
-{ //thoses iterators will be updated in up() and down()
-	mStateIt_haut = mStateIt; 
-	mStateIt_bas = mStateIt;
-
+SpaceSample::SpaceSample(std::vector<std::vector<Cell>>::const_iterator stateIt)
+	: mStateIt{ stateIt }
+{
 }
 
+void SpaceSample::setIterateurs(std::vector<Cell>::const_iterator it) { //update iterators as the facade moves in the vector
+	int dist = std::distance(mStateIt->begin(), it);
+
+
+
+
+	mStateIt_center = it;
+	mStateIt_bas = mStateIt == mStateIt->end() ? mStateIt->begin() : mStateIt->begin();
+	mStateIt_haut = it;
+}
 
 
 int SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it) {
@@ -17,6 +24,7 @@ int SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it) {
 	up();
 	middle();
 	down();
+
 	return nbNeighbors;
 	//std::cout << "nb de voisins : " << calculateNeighborhood() << std::endl;
 }
@@ -54,14 +62,9 @@ void SpaceSample::down() {
 	nbNeighbors += (int)(center(mStateIt_bas)).state();
 }
 
-void SpaceSample::setIterateurs(std::vector<Cell>::const_iterator it) { //update iterators as the facade moves in the vector
-	mStateIt = it;
-	mStateIt_bas = it;
-	mStateIt_haut = it;
-}
-
 
 Cell const & SpaceSample::right(std::vector<Cell>::const_iterator it) const {
+
 	if (it == mSpace.end() - 1) { // if last cell
 		return  *(it - mLargeur + 1);
 	}

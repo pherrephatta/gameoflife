@@ -18,6 +18,7 @@ public:
 
 	SDL_Window*& wdHandle(); 
 	SDL_Renderer*& wdRenderer();
+	SDL_Texture*& wdTexture();
 	SDL_Event& event(); 
 	uint16_t logWidth() const;
 	uint16_t logHeight() const;
@@ -32,6 +33,7 @@ private:
 
 	SDL_Window *mWdHandle = nullptr;
 	SDL_Renderer *mWdRenderer = nullptr;
+	SDL_Texture *mWdTexture = nullptr;
 	SDL_Event mEvent;
 };
 

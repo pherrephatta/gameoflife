@@ -16,10 +16,13 @@ public:
 
 	void mClear();								// Clear the screen
 	void mRenderChecker();						// Draw pattern, for testing purposes
-	void mRenderModel(Model& model); 		// Render the model
+	void mRenderModel(Model& model); 			// Render the model
+	const static size_t mNbColors = 255;
 
 private:
 	Window mWindow;
+	SDL_Color mPalette[mNbColors];
+	void mSetColors();
 };
 
 #endif // VIEW_H

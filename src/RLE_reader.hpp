@@ -21,6 +21,7 @@ class RLE_reader {
 	size_t mYHeight{};
 	string mRuleB{};
 	string mRuleS{}; //strings pour les regles for now,
+	string fileName;
 	ifstream mRLEfile{};
 
 public:
