@@ -17,6 +17,7 @@ Space& Model::space2() { return *mSpace2; }
 
 void Model::nextRule(){
 	(mIndexRule == (mRules.size() - 1)) ? mIndexRule = 0 : ++mIndexRule;
+<<<<<<< HEAD
 	//std::cout << "index" << mIndexRule;
 }
 
@@ -30,15 +31,39 @@ void Model::updateSpace() {
 			(*it2).setState(((State)(mRules[mIndexRule].outcome(((bool)(*it).state()), facade.GetNeighbors(it)))));
 		}
 		++it2;
+=======
+}
+
+void Model::updateSpace() {
+	(*mSpace1).setBorders();
+	int tHeight = mSpace1->Height();
+	int tLength = mSpace1->Length();
+	SpaceSample facade{mSpace1};
+
+	for (int y{}; y < tHeight; ++y) {
+		std::vector<Cell>::const_iterator it = mSpace1->getSpace()[y].begin();
+		std::vector<Cell>::iterator it2 = mSpace2->getSpace()[y].begin();
+		for (int x{}; x < tLength; ++x) {
+			it2->setState(((State)(mRules[mIndexRule].outcome(((bool)(*it).state()), facade.GetNeighbors(y, x)))));
+			++it;
+			++it2;
+		}
+>>>>>>> ferat
 	}
 
 	Space* temp{ mSpace1 };
 	mSpace1 = mSpace2;
 	mSpace2 = temp;
+<<<<<<< HEAD
 
 	(*mSpace1).setBorders();
 }
 
+=======
+}
+
+unsigned int Model::indexRule() { return mIndexRule; };
+>>>>>>> ferat
 uint8_t Model::liveCellColor() { return mLiveCellColor;}
 uint8_t Model::deadCellColor() { return mDeadCellColor;}
 void Model::mSetDeadColor() {mDeadCellColor = mDeadCellColor < View::mNbColors  ?  mDeadCellColor + 1 : 0;}

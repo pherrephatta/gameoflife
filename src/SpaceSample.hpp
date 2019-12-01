@@ -2,6 +2,7 @@
 #define SPACESAMPLE_H
 
 #include  "Cell.hpp"
+#include "Space.hpp"
 #include <vector>
 
 class SpaceSample
@@ -9,13 +10,19 @@ class SpaceSample
 public:
 	//Constructeurs
 	SpaceSample() = delete;
+<<<<<<< HEAD
 	SpaceSample(std::vector<Cell> const & space, std::vector<Cell>::const_iterator stateIt, int largeur);
+=======
+	SpaceSample(Space *space);
+>>>>>>> ferat
 	//Destructeurs
 	~SpaceSample() = default;
+	Space *mSpace;
 
 	//////////////////////////////////////////////////////////////////////////
 	//! \brief Accesseur de l'état
 	//////////////////////////////////////////////////////////////////////////
+<<<<<<< HEAD
 	int GetNeighbors(std::vector<Cell>::const_iterator it);
 
 	Cell const & left(std::vector<Cell>::const_iterator it) const;
@@ -35,6 +42,20 @@ private:
 	int mLargeur;
 	int nbNeighbors = 0;
 
+=======
+	int GetNeighbors(int y, int x);
+	int x;
+	int y;
+
+private:
+	int nbNeighbors = 0;
+	void up();
+	void middle();
+	void down();
+	Cell const & left(int y) const;
+	Cell const & right(int y) const;
+	Cell const & center(int y) const;
+>>>>>>> ferat
 };
 
 #endif // SPACESAMPLE_H

@@ -13,7 +13,10 @@ Controller::Controller(Model &model, View &view)
 #else
 	mValidRLEfiles = getRLEfiles("../rle/");
 #endif
+<<<<<<< HEAD
 
+=======
+>>>>>>> ferat
 	mModelAction.setAction((int)Keys::Action_Quit, [](Model& model, Controller& controller)->void { controller.quit(); });
 	mModelAction.setAction((int)Keys::Action_Border, [](Model& model, Controller& controller)->void { model.space1().BordersAlive(); });
 	mModelAction.setAction((int)Keys::GenMode_Random1, [](Model& model, Controller& controller)->void { model.space1().randomize(0.01); });
@@ -22,6 +25,10 @@ Controller::Controller(Model &model, View &view)
 	mModelAction.setAction((int)Keys::GenMode_Random15, [](Model& model, Controller& controller)->void { model.space1().randomize(0.15); });
 	mModelAction.setAction((int)Keys::GenMode_Random25, [](Model& model, Controller& controller)->void { model.space1().randomize(0.25); });
 	mModelAction.setAction((int)Keys::GenMode_Random50, [](Model& model, Controller& controller)->void { model.space1().randomize(0.50); });
+<<<<<<< HEAD
+=======
+	mModelAction.setAction((int)Keys::Action_Space, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed0); });
+>>>>>>> ferat
 	mModelAction.setAction((int)Keys::Speed_x1, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed1); });
 	mModelAction.setAction((int)Keys::Speed_x2, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed2); });
 	mModelAction.setAction((int)Keys::Speed_x3, [](Model& model, Controller& controller)->void { controller.mSetSpeedMode(SpeedMode::Speed3); });
@@ -34,6 +41,7 @@ Controller::Controller(Model &model, View &view)
 	mModelAction.setAction((int)Keys::Action_Rule, [](Model& model, Controller& controller)->void { model.nextRule(); });
 	mModelAction.setAction((int)Keys::Action_ActiveCellColor, [](Model& model, Controller& controller)->void { model.mSetLiveColor(); });
 	mModelAction.setAction((int)Keys::Action_DeadCellColor, [](Model& model, Controller& controller)->void { model.mSetDeadColor(); });
+<<<<<<< HEAD
 	mModelAction.setAction((int)Keys::GenMode_FileNext, [](Model& model, Controller& controller)->void {model.giveRLE(controller.getNextRLE());});
 	mModelAction.setAction((int)Keys::GenMode_FilePrev, [](Model& model, Controller& controller)->void {model.giveRLE(controller.getLastRLE()); });
 	mModelAction.setAction((int)Keys::GenMode_FileSame, [](Model& model, Controller& controller)->void {model.giveRLE(controller.currRLE()); });
@@ -43,6 +51,17 @@ string Controller::getNextRLE() { return mValidRLEfiles.at(mRLEindex > mValidRLE
 string Controller::getLastRLE() { return mValidRLEfiles.at(mRLEindex <= 0 ? mValidRLEfiles.size() - 1 : --mRLEindex); }
 
 
+=======
+	mModelAction.setAction((int)Keys::GenMode_FileNext, [](Model& model, Controller& controller)->void {model.giveRLE(controller.getNextRLE()); });
+	mModelAction.setAction((int)Keys::GenMode_FilePrev, [](Model& model, Controller& controller)->void {model.giveRLE(controller.getLastRLE()); });
+	mModelAction.setAction((int)Keys::GenMode_FileSame, [](Model& model, Controller& controller)->void {model.giveRLE(controller.currRLE()); });
+}
+
+string Controller::currRLE() { return mValidRLEfiles[mRLEindex]; }
+string Controller::getNextRLE() { printf("nb of index: %zd, total: %zd\n", mRLEindex, mValidRLEfiles.size()); return mValidRLEfiles.at(mRLEindex > mValidRLEfiles.size() ? 0 : ++mRLEindex); }
+string Controller::getLastRLE() { return mValidRLEfiles.at(mRLEindex <= 0 ? mValidRLEfiles.size() - 1 : --mRLEindex); }
+
+>>>>>>> ferat
 void Controller::start() {
 	do {
 		while (SDL_PollEvent(&mView.window().event())) {
@@ -51,6 +70,12 @@ void Controller::start() {
 				mModelAction.doActionFromKey(mView.window().event().key.keysym.sym, mModel, *this);
 			}
 		}
+<<<<<<< HEAD
+=======
+		for (int n = 0; n < int(mSpeedMode) * 2; ++n) {
+			mModel.updateSpace();
+		}
+>>>>>>> ferat
 		mView.mRenderModel(mModel);
 		for (int n = 0; n <= int(mSpeedMode) * 2; ++n) {
 			mModel.updateSpace();

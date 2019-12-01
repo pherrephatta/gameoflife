@@ -11,8 +11,6 @@ State Cell::state() const
 	return mState;
 }
 
-
-
 void Cell::setState(State state)
 {
 	mState = state;

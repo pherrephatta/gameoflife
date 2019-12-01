@@ -60,18 +60,23 @@ private:
 	KeyBinding mModelAction;
 
 	enum class SpeedMode {
-		Speed1 	= 0,
-		Speed2 	= 1,
-		Speed3 	= 2,
-		Speed4 	= 3,
-		Speed5 	= 4,
-		Speed6 	= 5,
-		Speed7 	= 6,
-		Speed8 	= 7,
-		Speed9 	= 8,
+		Speed0	= 0,
+		Speed1 	= 1,
+		Speed2 	= 2,
+		Speed3 	= 3,
+		Speed4 	= 4,
+		Speed5 	= 5,
+		Speed6 	= 6,
+		Speed7 	= 7,
+		Speed8 	= 8,
+		Speed9 	= 9,
 		_count_
 	};
+<<<<<<< HEAD
 	SpeedMode mSpeedMode = SpeedMode::Speed1;
+=======
+	SpeedMode mSpeedMode{SpeedMode::Speed1};
+>>>>>>> ferat
 	KeyBinding mSpeedAction;
 
 	enum class GenerationMode {
@@ -83,7 +88,11 @@ private:
 		Random50 	= 5,
 		_count_
 	};
+<<<<<<< HEAD
 	GenerationMode mGenerationMode = GenerationMode::Random50;
+=======
+	GenerationMode mGenerationMode{GenerationMode::Random50};
+>>>>>>> ferat
 	KeyBinding mGenerationAction;
 
 	// TODO change place

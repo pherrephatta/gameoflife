@@ -18,7 +18,7 @@ public:
 	void updateSpace();
 	Space& space1();
 	Space& space2();
-	unsigned int indexRule() { return mIndexRule; };
+	unsigned int indexRule();
 	void nextRule();
 	void giveRLE(string fileName); //give a RLE file to currSpace. i.e. reset it with that new pattern
 	uint8_t deadCellColor();
