@@ -32,7 +32,7 @@ public:
 
 	unsigned char ruleB();
 	unsigned char ruleS();
-	bool analyzeFile();
+	bool analyzeFile(size_t MaxSizeX, size_t MaxSizeY);
 	const vector<bool> ExportUniverse() { return mExportUniverse; }
 	const size_t rleWidth() { return mXWidth; }
 	const size_t rleHeight() { return mYHeight; }

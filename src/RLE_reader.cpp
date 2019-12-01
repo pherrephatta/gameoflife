@@ -25,7 +25,7 @@ unsigned char RLE_reader::ruleS() {
 	return ruleS;
 }
 
-bool RLE_reader::analyzeFile() { //TO DO : BREAK IT DOWN. currently takes way too long to reject the largeRLE file
+bool RLE_reader::analyzeFile(size_t MaxSizeX, size_t MaxSizeY) {  
 	smatch s;
 	string line;
 	bool inComments{ true };
@@ -41,7 +41,7 @@ bool RLE_reader::analyzeFile() { //TO DO : BREAK IT DOWN. currently takes way to
 				if (s.length() > 0) {
 					mXWidth = stoi(s[1].str());
 					mYHeight = stoi(s[2].str());
-					if (mXWidth <1 || mYHeight <1) {
+					if (mXWidth <1 || mYHeight <1 || mXWidth > MaxSizeX || mYHeight > MaxSizeY) {
 						cout << " : invalid size parameters"  << endl; //will likely never be reached b/c the regex makes sure there are no '-' in the line
 						return false;
 					}

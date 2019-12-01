@@ -42,6 +42,4 @@ private:
 	static std::mt19937 randomGenerator;
 };
 
-
-
 #endif // RANDOM_UTIL_H

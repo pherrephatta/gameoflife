@@ -2,7 +2,6 @@
 
 Cell::Cell(State state)
 {
-
 	mState = state;
 }
 

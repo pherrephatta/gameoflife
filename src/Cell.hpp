@@ -8,41 +8,27 @@ enum class State : bool {
 	ACTIVE = 1,						//!< État actif, vivant, blanc, 1, ...
 };
 
-
 class Cell
 {
 
 private:
-
 	State mState;
-
 	//Color mColor; CLASSE COULEUR A IMPLANTER 
 
 public:
 	//Constructeurs
 	Cell() = default;
 	Cell(State state);
-
-
 	//Destructeurs
 	~Cell() = default;
 
 	//////////////////////////////////////////////////////////////////////////
 	// Accesseur de l'état
 	//////////////////////////////////////////////////////////////////////////
-	State state() const; //ou pas const?
-
-
-
+	State state() const;
 	void setState(State state);
-
 	void randomize(double probability = 0.5);
 
-
-
 };
-
-
-
 
 #endif // CELL_H

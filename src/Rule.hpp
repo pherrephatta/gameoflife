@@ -20,7 +20,7 @@ public:
 	~Rule() = default;
 	unsigned char ruleB() { return mRuleB; }
 	unsigned char ruleS() { return mRuleS; }
-	bool outcome(bool state, int NbOfNeighbours);
+	bool outcome(bool state, size_t NbOfNeighbours);
 
 
 };

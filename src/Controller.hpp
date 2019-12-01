@@ -26,7 +26,7 @@ private:
 	bool mQuit = false;
 	Model &mModel;
 	View &mView;
-	size_t mRLEindex{ 0 };
+	int mRLEindex{ 0 };
 	std::vector<string> mValidRLEfiles;
 
 	enum class Keys : char {
@@ -85,15 +85,6 @@ private:
 	};
 	GenerationMode mGenerationMode{GenerationMode::Random50};
 	KeyBinding mGenerationAction;
-
-	// TODO change place
-	/*
-	string mPath;
-	vector<string> mFile;
-	std::array<int,5> mSpeed{};
-	int mIndexFile{};
-	int mIndexSpeed{};
-	*/
 
 public:
 	void start();

@@ -1,16 +1,13 @@
 #include "Controller.hpp"
 #include <limits>
 
-Controller::Controller(Model &model, View &view) 
-	: mModel{model}, mView{view}, mModelAction(),
-	mGenerationAction(0, (int)GenerationMode::_count_), 
+Controller::Controller(Model &model, View &view)
+	: mModel{ model }, mView{ view }, mModelAction(),
+	mGenerationAction(0, (int)GenerationMode::_count_),
 	mSpeedAction(0, (int)SpeedMode::_count_)
 {
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
-	mValidRLEfiles = getRLEfiles("./rle/");
-#else
-	mValidRLEfiles = getRLEfiles("../rle/");
-#endif
+	mValidRLEfiles = getRLEfiles("./rle/"); //build vector of valid RLE files from RLE directory
+
 	mModelAction.setAction((int)Keys::Action_Quit, [](Model& model, Controller& controller)->void { controller.quit(); });
 	mModelAction.setAction((int)Keys::Action_Border, [](Model& model, Controller& controller)->void { model.space1().BordersAlive(); });
 	mModelAction.setAction((int)Keys::GenMode_Random1, [](Model& model, Controller& controller)->void { model.space1().randomize(0.01); });
@@ -38,8 +35,21 @@ Controller::Controller(Model &model, View &view)
 }
 
 string Controller::currRLE() { return mValidRLEfiles[mRLEindex]; }
-string Controller::getNextRLE() { printf("nb of index: %zd, total: %zd\n", mRLEindex, mValidRLEfiles.size()); return mValidRLEfiles.at(mRLEindex > mValidRLEfiles.size() ? 0 : ++mRLEindex); }
-string Controller::getLastRLE() { return mValidRLEfiles.at(mRLEindex <= 0 ? mValidRLEfiles.size() - 1 : --mRLEindex); }
+string Controller::getNextRLE() { 
+	
+	++mRLEindex;
+	if ((size_t)mRLEindex >= mValidRLEfiles.size() - 1) {
+		mRLEindex = 0;
+	}
+	return mValidRLEfiles[mRLEindex]; }
+
+string Controller::getLastRLE() { 
+	--mRLEindex;
+	if (mRLEindex < 0) {
+		mRLEindex = int(mValidRLEfiles.size()) - 1;
+	}
+	return mValidRLEfiles[mRLEindex]; 
+}
 
 void Controller::start() {
 	do {
@@ -49,7 +59,7 @@ void Controller::start() {
 				mModelAction.doActionFromKey(mView.window().event().key.keysym.sym, mModel, *this);
 			}
 		}
-		for (int n = 0; n < int(mSpeedMode) * 2; ++n) {
+		for (int n{ 0 }; n < int(mSpeedMode) * 2; ++n) {
 			mModel.updateSpace();
 		}
 		mView.mRenderModel(mModel);
@@ -70,8 +80,8 @@ std::vector<std::string> Controller::getRLEfiles(std::string folder) {
 		if (file.is_regular_file()) {
 			std::filesystem::path path = file;
 			RLE_reader r(path.string());
-			if (std::filesystem::file_size(path) < 10000 && r.analyzeFile()) { //if files are very big, we only analyze them when they are specifically chosen, at wich point we verify data coherence as we go along with the specified actual parameters(namely, height and lenght)
-				files.push_back(path.string()); //if files are invalid, we dont keep them in the vector. 
+			if (r.analyzeFile(mView.window().logWidth(), mView.window().logHeight())) { 
+				files.push_back(path.string()); 
 			} 
 		} 
 	}

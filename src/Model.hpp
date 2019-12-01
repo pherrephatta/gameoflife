@@ -11,7 +11,7 @@ class Model {
 
 public:
 	Model() = delete;
-	Model(int width, int height);
+	Model(size_t width, size_t height);
 	~Model();
 
 	//mettre a jour l'espace

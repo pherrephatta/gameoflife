@@ -9,13 +9,13 @@ class Space
 {
 private:
 	std::vector<std::vector<Cell>> mSpace;
-	int mLength;
-	int mHeight;
+	size_t mLength;
+	size_t mHeight;
 	bool mBordersAlive = true;
 
 public:
 	Space() = default;
-	Space(int lenght, int height);
+	Space(size_t lenght, size_t height);
 	~Space() = default;
 
 	//////////////////////////////////////////////////////////////////////////
@@ -27,8 +27,8 @@ public:
 	void BordersAlive();
 	void wipeSpace();
 	void randomize(double probability = 0.5);
-	int Length();
-	int Height();
+	size_t Length();
+	size_t Height();
 	void GenFromRLE(std::string s);
 
 	//Necessaire ou non?

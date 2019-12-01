@@ -18,18 +18,18 @@ public:
 	//////////////////////////////////////////////////////////////////////////
 	//! \brief Accesseur de l'état
 	//////////////////////////////////////////////////////////////////////////
-	int GetNeighbors(int y, int x);
-	int x;
-	int y;
+	size_t GetNeighbors(size_t y, size_t x);
+	size_t x;
+	size_t y;
 
 private:
-	int nbNeighbors = 0;
+	size_t nbNeighbors{};
 	void up();
 	void middle();
 	void down();
-	Cell const & left(int y) const;
-	Cell const & right(int y) const;
-	Cell const & center(int y) const;
+	Cell const & left(size_t y) const;
+	Cell const & right(size_t y) const;
+	Cell const & center(size_t y) const;
 };
 
 #endif // SPACESAMPLE_H

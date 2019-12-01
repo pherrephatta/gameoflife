@@ -9,7 +9,7 @@
 
 std::vector<std::vector<Cell>> &Space::getSpace() {	return mSpace; }
 
-Space::Space(int length, int height)
+Space::Space(size_t length, size_t height)
 	: mSpace(height), mLength{ length }, mHeight{ height }
 {
 	for (int y{}; y < mHeight; y++) {
@@ -28,7 +28,7 @@ void Space::wipeSpace() {
 void Space::GenFromRLE(string s) {
 	RLE_reader r(s); //s must be valid RLE file, recommended to call this function only by using strings from the mValidRLEfiles vector
 
-	bool valid = r.analyzeFile();
+	bool valid = r.analyzeFile(mLength, mHeight);
 	size_t patternWidth{ r.rleWidth() };
 	size_t patternHeight{ r.rleHeight()};
 	if (valid && patternWidth < mLength && patternHeight < mHeight) {
@@ -86,5 +86,5 @@ void Space::randomize(double probability) {
 	}
 }
 
-int Space::Length() { return mLength; }
-int Space::Height() { return mHeight; }
+size_t Space::Length() { return mLength; }
+size_t Space::Height() { return mHeight; }
