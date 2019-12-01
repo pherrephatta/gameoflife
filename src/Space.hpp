@@ -25,32 +25,11 @@ public:
 
 	void setBorders();
 	void BordersAlive();
-<<<<<<< HEAD
-
-	void wipeSpace();
-
-	void randomize(double probability = 0.5);
-
-	int Lenght() {
-		return mLenght;
-	};
-
-	int Height() {
-		return mHeight;
-	}
-
-	void GenFromRLE(std::string s);
-
-
-
-
-=======
 	void wipeSpace();
 	void randomize(double probability = 0.5);
 	int Length();
 	int Height();
 	void GenFromRLE(std::string s);
->>>>>>> ferat
 
 	//Necessaire ou non?
 	//Effectue la conversion entre un état et un caractère.

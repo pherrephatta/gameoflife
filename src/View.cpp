@@ -9,10 +9,6 @@ View::View(uint16_t width, uint16_t height)
 {
 	printf("%d, %d\n", mWindow.logWidth(), mWindow.logHeight());
 	mSetColors();
-<<<<<<< HEAD
-	printf("test\n");
-=======
->>>>>>> ferat
 }
 
 void View::mClear() {
@@ -22,8 +18,8 @@ void View::mClear() {
 
 void View::mRenderChecker() {
 	mClear();
-	for (size_t y{0}; y < mWindow.logHeight(); y++) {
-		for (size_t x{0}; x < mWindow.logWidth(); x++) {
+	for (int y{0}; y < mWindow.logHeight(); y++) {
+		for (int x{0}; x < mWindow.logWidth(); x++) {
 			int color = (x + y) % 2 == 0 ? 255 : 0;
 			SDL_SetRenderDrawColor(mWindow.wdRenderer(), color, color, color, SDL_ALPHA_OPAQUE);
 			SDL_RenderDrawPoint(mWindow.wdRenderer(), x, y);
@@ -33,24 +29,14 @@ void View::mRenderChecker() {
 }
 
 void View::mRenderModel(Model& model) { 
-<<<<<<< HEAD
-	assert(model.space1().Lenght() * model.space1().Height() == (mWindow.logWidth() + 1) * (mWindow.logHeight() + 1));
-	int pos{};
-=======
 	assert(model.space1().Length() * model.space1().Height() == (mWindow.logWidth()) * (mWindow.logHeight()));
->>>>>>> ferat
 	SDL_Color color{};
 	SDL_SetRenderTarget(mWindow.wdRenderer(), mWindow.wdTexture());
 	SDL_RenderClear(mWindow.wdRenderer());
 	
 	for (size_t y{0}; y < mWindow.logHeight(); ++y) {
 		for (size_t x{0}; x < mWindow.logWidth(); ++x) {
-<<<<<<< HEAD
-			pos = ((y + 1) * model.space1().Lenght()) + (x + 1);
-			color = model.space1().getSpace()[pos].state() == State::ACTIVE ? mPalette[model.liveCellColor()] : mPalette[model.deadCellColor()];
-=======
 			color = model.space1().getSpace()[y][x].state() == State::ACTIVE ? mPalette[model.liveCellColor()] : mPalette[model.deadCellColor()];
->>>>>>> ferat
 			SDL_SetRenderDrawColor(mWindow.wdRenderer(), color.r, color.g, color.b, color.a);
 			SDL_RenderDrawPoint(mWindow.wdRenderer(), x, y);
 		}

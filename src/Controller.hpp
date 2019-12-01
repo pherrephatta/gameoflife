@@ -24,7 +24,6 @@ public:
 
 private:
 	bool mQuit = false;
-	const Uint8 *mKeyState; 				// SDL keystate array (for held vs pressed keys)
 	Model &mModel;
 	View &mView;
 	size_t mRLEindex{ 0 };
@@ -72,11 +71,7 @@ private:
 		Speed9 	= 9,
 		_count_
 	};
-<<<<<<< HEAD
-	SpeedMode mSpeedMode = SpeedMode::Speed1;
-=======
 	SpeedMode mSpeedMode{SpeedMode::Speed1};
->>>>>>> ferat
 	KeyBinding mSpeedAction;
 
 	enum class GenerationMode {
@@ -88,11 +83,7 @@ private:
 		Random50 	= 5,
 		_count_
 	};
-<<<<<<< HEAD
-	GenerationMode mGenerationMode = GenerationMode::Random50;
-=======
 	GenerationMode mGenerationMode{GenerationMode::Random50};
->>>>>>> ferat
 	KeyBinding mGenerationAction;
 
 	// TODO change place
