@@ -6,13 +6,15 @@
 #include <sstream>
 #include <iostream>
 
-int Space::Length() { return mLength; }
-int Space::Height() { return mHeight; }
+
 std::vector<std::vector<Cell>> &Space::getSpace() {	return mSpace; }
 
 Space::Space(int length, int height)
-	: mSpace(length*height), mLength{ length }, mHeight{ height }
+	: mSpace(height), mLength{ length }, mHeight{ height }
 {
+	for (int y{}; y < mHeight; y++) {
+		mSpace[y].resize(mLength);
+	}
 }
 
 void Space::wipeSpace() {
@@ -36,13 +38,12 @@ void Space::GenFromRLE(string s) {
 		size_t cpt_pattern{ 0 }; //counter for width of rle pattern, when we get to its max value, we put the space cursor at the correct following XY.
 
 		// Find upper left corner of the vector space (to center pattern)
-		size_t midX = mLength - (patternWidth / 2);
-		size_t midY = mHeight - (patternHeight / 2);
+		size_t midX = (mLength / 2) - (patternWidth / 2);
+		size_t midY = (mHeight / 2) - (patternHeight / 2);
 
 		size_t X = midX;
 		size_t Y = midY;
 		for (bool b : RLE_universe) {
-
 			mSpace[Y][X].setState(b ? State::ACTIVE : State::INACTIVE);
 			++cpt_pattern;
 			++X;
@@ -84,3 +85,6 @@ void Space::randomize(double probability) {
 		}
 	}
 }
+
+int Space::Length() { return mLength; }
+int Space::Height() { return mHeight; }

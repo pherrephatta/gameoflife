@@ -18,8 +18,8 @@ void View::mClear() {
 
 void View::mRenderChecker() {
 	mClear();
-	for (size_t y{0}; y < mWindow.logHeight(); y++) {
-		for (size_t x{0}; x < mWindow.logWidth(); x++) {
+	for (int y{0}; y < mWindow.logHeight(); y++) {
+		for (int x{0}; x < mWindow.logWidth(); x++) {
 			int color = (x + y) % 2 == 0 ? 255 : 0;
 			SDL_SetRenderDrawColor(mWindow.wdRenderer(), color, color, color, SDL_ALPHA_OPAQUE);
 			SDL_RenderDrawPoint(mWindow.wdRenderer(), x, y);

@@ -26,9 +26,6 @@ public:
 	void mSetDeadColor();
 	void mSetLiveColor();
 
-	std::vector<Cell>::const_iterator it;
-	std::vector<Cell>::iterator it2;
-
 private:
 	//vector<Rule> mRule;
 	Space* mSpace1 = nullptr;

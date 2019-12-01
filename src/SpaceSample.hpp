@@ -2,6 +2,7 @@
 #define SPACESAMPLE_H
 
 #include  "Cell.hpp"
+#include "Space.hpp"
 #include <vector>
 
 class SpaceSample
@@ -9,32 +10,26 @@ class SpaceSample
 public:
 	//Constructeurs
 	SpaceSample() = delete;
-	SpaceSample(std::vector<std::vector<Cell>>::const_iterator stateIt);
+	SpaceSample(Space *space);
 	//Destructeurs
 	~SpaceSample() = default;
+	Space *mSpace;
 
 	//////////////////////////////////////////////////////////////////////////
 	//! \brief Accesseur de l'état
 	//////////////////////////////////////////////////////////////////////////
-	int GetNeighbors(std::vector<Cell>::const_iterator it);
+	int GetNeighbors(int y, int x);
+	int x;
+	int y;
 
-	Cell const & left(std::vector<Cell>::const_iterator it) const;
-	Cell const & right(std::vector<Cell>::const_iterator it) const;
-	Cell const & center(std::vector<Cell>::const_iterator it) const;
-
+private:
+	int nbNeighbors = 0;
 	void up();
 	void middle();
 	void down();
-	void setIterateurs(std::vector<Cell>::const_iterator it);
-
-private:
-	std::vector<std::vector<Cell>>::const_iterator mStateIt;
-
-	std::vector<Cell>::const_iterator mStateIt_center;
-	std::vector<Cell>::const_iterator mStateIt_haut;
-	std::vector<Cell>::const_iterator mStateIt_bas;
-	int nbNeighbors = 0;
-
+	Cell const & left(int y) const;
+	Cell const & right(int y) const;
+	Cell const & center(int y) const;
 };
 
 #endif // SPACESAMPLE_H

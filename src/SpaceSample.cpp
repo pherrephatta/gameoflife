@@ -1,57 +1,49 @@
 #include "SpaceSample.hpp"
 #include <iostream>
 
-SpaceSample::SpaceSample(std::vector<std::vector<Cell>>::const_iterator stateIt)
-	: mStateIt{ stateIt }
+SpaceSample::SpaceSample(Space *space)
+	: mSpace( space)
 {
 }
 
-void SpaceSample::setIterateurs(std::vector<Cell>::const_iterator it) { //update iterators as the facade moves in the vector
-	int dist = std::distance(mStateIt->begin(), it);
-
-	mStateIt_center = mStateIt->begin();
-	mStateIt_bas = mStateIt->begin(); 
-	mStateIt_haut = mStateIt->begin();
-}
-
-int SpaceSample::GetNeighbors(std::vector<Cell>::const_iterator it) {
+int SpaceSample::GetNeighbors(int y, int x) {
+	this->x = x;
+	this->y = y;
 	nbNeighbors = 0;
-	setIterateurs(it);
 	up();
 	middle();
 	down();
-
 	return nbNeighbors;
 	//std::cout << "nb de voisins : " << calculateNeighborhood() << std::endl;
 }
 
-Cell const & SpaceSample::center(std::vector<Cell>::const_iterator it) const {
-	return *it;
-}
-
 void SpaceSample::up() {
-	nbNeighbors += (int)(left(mStateIt_haut)).state();
-	nbNeighbors += (int)(right(mStateIt_haut)).state();
-	nbNeighbors += (int)(center(mStateIt_haut)).state();
+	int y_up = this->y > 0 ? y - 1 : mSpace->Height() - 1;
+	nbNeighbors += (int)(left(y_up).state());
+	nbNeighbors += (int)(right(y_up).state());
+	nbNeighbors += (int)(center(y_up).state());
 }
 
 void SpaceSample::middle() {
-	nbNeighbors += (int)(left(mStateIt_center)).state();
-	nbNeighbors += (int)(right(mStateIt_center)).state();
+	nbNeighbors += (int)(left(y).state());
+	nbNeighbors += (int)(right(y).state());
 }
 
 void SpaceSample::down() {
-	nbNeighbors += (int)(left(mStateIt_bas)).state();
-	nbNeighbors += (int)(right(mStateIt_bas)).state();
-	nbNeighbors += (int)(center(mStateIt_bas)).state();
+	int y_down = this->y == mSpace->Height() - 1 ? 0 : y + 1;
+	nbNeighbors += (int)(left(y_down).state());
+	nbNeighbors += (int)(right(y_down).state());
+	nbNeighbors += (int)(center(y_down).state());
 }
 
-
-Cell const & SpaceSample::right(std::vector<Cell>::const_iterator it) const {
-
-	return *std::next(it);
+Cell const & SpaceSample::right(int y) const {
+	return ((x >= (mSpace->Length() - 1)) ? mSpace->getSpace()[y][0] : mSpace->getSpace()[y][x + 1]);
 }
 
-Cell const & SpaceSample::left(std::vector<Cell>::const_iterator it) const {
-	return *std::prev(it);
+Cell const & SpaceSample::left(int y) const {
+	return ((x <= 0) ? mSpace->getSpace()[y][(mSpace->Length()) - 1] : mSpace->getSpace()[y][x - 1]);
+}
+
+Cell const & SpaceSample::center(int y) const {
+	return mSpace->getSpace()[y][x];
 }

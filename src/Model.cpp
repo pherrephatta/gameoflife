@@ -23,14 +23,13 @@ void Model::updateSpace() {
 	(*mSpace1).setBorders();
 	int tHeight = mSpace1->Height();
 	int tLength = mSpace1->Length();
-	std::vector<std::vector<Cell>>::const_iterator heightIterator = mSpace1->getSpace().begin();
+	SpaceSample facade{mSpace1};
 
 	for (int y{}; y < tHeight; ++y) {
-		it = mSpace1->getSpace()[y].begin();
-		it2 = mSpace2->getSpace()[y].begin();
-		SpaceSample facade {heightIterator++};
+		std::vector<Cell>::const_iterator it = mSpace1->getSpace()[y].begin();
+		std::vector<Cell>::iterator it2 = mSpace2->getSpace()[y].begin();
 		for (int x{}; x < tLength; ++x) {
-			it2->setState(((State)(mRules[mIndexRule].outcome(((bool)(*it).state()), facade.GetNeighbors(it)))));
+			it2->setState(((State)(mRules[mIndexRule].outcome(((bool)(*it).state()), facade.GetNeighbors(y, x)))));
 			++it;
 			++it2;
 		}
